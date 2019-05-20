@@ -1,6 +1,9 @@
 ## The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### `Get the application working !`
+### `Visit the application OnLine !`
+https://musafadul.github.io/SMS-Frontend/
+
+### `Get the application working Locally!`
 
 1- Clone or download the project.<br>
 2- Run npm install to install project dependencies.<br>
