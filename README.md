@@ -10,4 +10,4 @@ In the project directory, you can run:
 2- Run npm install to install project dependencies.<br>
 3- Run npm start.<br>
 the app wiil then run in the development mode.<br>
-Open [http://localhost:3000]to view it in the browser.
+Open http://localhost:3000 to view it in the browser.
