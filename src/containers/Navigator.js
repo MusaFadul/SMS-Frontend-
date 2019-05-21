@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { injectIntl } from "react-intl";
 import { Route, Switch } from "react-router-dom";
 import Grid from '../components/Grid'
 import NavigatorWrapper from "./navigator/NavigatorWrapper";
 import FormValidation from '../pages/FormValidation';
+import Layout from '../components/Layout';
 
 class Navigatgor extends Component {
   constructor(props) {
@@ -18,18 +18,7 @@ class Navigatgor extends Component {
           path="/"
           component={routeProps => (
             <NavigatorWrapper
-              component={<Grid {...routeProps} {...this.props} />}
-              {...routeProps}
-              {...this.props}
-            />
-          )}
-        />
-        <Route
-          exact
-          path="/home"
-          component={routeProps => (
-            <NavigatorWrapper
-              component={<Grid {...routeProps} {...this.props} />}
+              component={<Layout {...routeProps} {...this.props} />}
               {...routeProps}
               {...this.props}
             />

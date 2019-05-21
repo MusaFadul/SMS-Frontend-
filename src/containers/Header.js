@@ -12,12 +12,12 @@ class Header extends Component {
       <div className="row header-container u-background-color-white">
         <div className="col-lg-8 offset-lg-2">
           <div className="header header-primary">
-            <div className="header__logo ">
-              <i className="fa fa-bars" />
+            <div className="header__user-area ">
+            <a href="/"> <i className="fa fa-bars" /> </a>
             </div>
-           
+            <div className="header__brand ">SMS Coding Challenge</div>
             <div className="header__user-area">
-              <i className="fa fa-user" />
+             <a href="/form"> <i className="fa fa-user" /> </a> 
             </div>
           </div>
         </div>

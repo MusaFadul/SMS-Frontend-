@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 
+
 class NavigatorWrapper extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
+   
     const { component } = this.props;
     return (
       <div className="navigation">
