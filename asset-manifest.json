@@ -1,17 +1,16 @@
 {
   "files": {
-    "main.css": "/SMS-Frontend/static/css/main.fe97a706.chunk.css",
-    "main.js": "/SMS-Frontend/static/js/main.57a4af76.chunk.js",
-    "main.js.map": "/SMS-Frontend/static/js/main.57a4af76.chunk.js.map",
+    "main.js": "/SMS-Frontend/static/js/main.d32e737e.chunk.js",
+    "main.js.map": "/SMS-Frontend/static/js/main.d32e737e.chunk.js.map",
     "runtime~main.js": "/SMS-Frontend/static/js/runtime~main.4677ae6d.js",
     "runtime~main.js.map": "/SMS-Frontend/static/js/runtime~main.4677ae6d.js.map",
-    "static/js/2.da6c47e5.chunk.js": "/SMS-Frontend/static/js/2.da6c47e5.chunk.js",
-    "static/js/2.da6c47e5.chunk.js.map": "/SMS-Frontend/static/js/2.da6c47e5.chunk.js.map",
+    "static/css/2.d5739a04.chunk.css": "/SMS-Frontend/static/css/2.d5739a04.chunk.css",
+    "static/js/2.68e58b4a.chunk.js": "/SMS-Frontend/static/js/2.68e58b4a.chunk.js",
+    "static/js/2.68e58b4a.chunk.js.map": "/SMS-Frontend/static/js/2.68e58b4a.chunk.js.map",
     "index.html": "/SMS-Frontend/index.html",
-    "precache-manifest.2575908ca50413b20c42077198c107b2.js": "/SMS-Frontend/precache-manifest.2575908ca50413b20c42077198c107b2.js",
+    "precache-manifest.bbefee73fe03907af1af2aafa9797656.js": "/SMS-Frontend/precache-manifest.bbefee73fe03907af1af2aafa9797656.js",
     "service-worker.js": "/SMS-Frontend/service-worker.js",
-    "static/css/main.fe97a706.chunk.css.map": "/SMS-Frontend/static/css/main.fe97a706.chunk.css.map",
-    "static/media/index.scss": "/SMS-Frontend/static/media/fontawesome-webfont.fee66e71.woff",
-    "static/media/logo.svg": "/SMS-Frontend/static/media/logo.5d5d9eef.svg"
+    "static/css/2.d5739a04.chunk.css.map": "/SMS-Frontend/static/css/2.d5739a04.chunk.css.map",
+    "static/media/logo.svg": "/SMS-Frontend/static/media/logo.ee7cd8ed.svg"
   }
 }
