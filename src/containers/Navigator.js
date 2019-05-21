@@ -26,7 +26,7 @@ class Navigatgor extends Component {
         />
         <Route
           exact
-          path="/form"
+          path="https://musafadul.github.io/SMS-Frontend/form"
           component={routeProps => (
             <NavigatorWrapper
               component={<FormValidation {...routeProps} {...this.props} />}

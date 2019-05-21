@@ -20,7 +20,7 @@ class Header extends Component {
             </div>
             <div >SMS Coding Challenge</div>
             <div >
-             <a href="/form">  <FontAwesomeIcon icon={faUser} size="3x" style={{color:"black"}}/> </a> 
+             <a href="https://musafadul.github.io/SMS-Frontend/form">  <FontAwesomeIcon icon={faUser} size="3x" style={{color:"black"}}/> </a> 
             </div>
           </div>
         </div>
