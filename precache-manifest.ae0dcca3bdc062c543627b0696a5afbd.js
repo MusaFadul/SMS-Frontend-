@@ -1,19 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b982855ae3a6d1602524223e3f06d632",
+    "revision": "8f79632d2d1f75e9cf87ec6a3bb662f5",
     "url": "/SMS-Frontend/index.html"
   },
   {
-    "revision": "81108b6c9ac399531d6c",
-    "url": "/SMS-Frontend/static/css/2.d5739a04.chunk.css"
+    "revision": "b7d6ee1bfee2baa4e945",
+    "url": "/SMS-Frontend/static/js/2.ad758a62.chunk.js"
   },
   {
-    "revision": "81108b6c9ac399531d6c",
-    "url": "/SMS-Frontend/static/js/2.68e58b4a.chunk.js"
-  },
-  {
-    "revision": "4e59872b47aec55e0f2b",
-    "url": "/SMS-Frontend/static/js/main.d32e737e.chunk.js"
+    "revision": "77cd210bd94624c8f747",
+    "url": "/SMS-Frontend/static/js/main.6a222691.chunk.js"
   },
   {
     "revision": "85e17bdd877347380b06",
