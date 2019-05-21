@@ -11,10 +11,10 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.0/workbox-sw.js");
 
 importScripts(
-  "/SMS-Frontend/precache-manifest.4f71012f63fa89d10cecc730c8f39faa.js"
+  "/SMS-Frontend/precache-manifest.2575908ca50413b20c42077198c107b2.js"
 );
 
 self.addEventListener('message', (event) => {
