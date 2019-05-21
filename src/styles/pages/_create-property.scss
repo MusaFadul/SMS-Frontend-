@@ -1,0 +1,43 @@
+.create-property {
+  @include media-breakpoint-down(sm) {
+
+    margin: 1rem;
+
+    &__section-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    &__section-item {
+      border: 1px solid lightblue;
+      padding: 1rem;
+
+      // background-color: lighten($color: lightgray, $amount: 10);
+
+      position: relative;
+
+      &:first-of-type {
+        background-color: darkgray;
+      }
+
+      -webkit-clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 75%,
+        75% 75%,
+        75% 100%,
+        50% 75%,
+        0% 75%
+      );
+      clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 75%,
+        75% 75%,
+        75% 100%,
+        50% 75%,
+        0% 75%
+      );
+    }
+  }
+}
