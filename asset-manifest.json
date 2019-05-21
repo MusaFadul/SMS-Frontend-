@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.js": "/SMS-Frontend/static/js/main.6a222691.chunk.js",
-    "main.js.map": "/SMS-Frontend/static/js/main.6a222691.chunk.js.map",
+    "main.js": "/SMS-Frontend/static/js/main.55d22a2f.chunk.js",
+    "main.js.map": "/SMS-Frontend/static/js/main.55d22a2f.chunk.js.map",
     "runtime~main.js": "/SMS-Frontend/static/js/runtime~main.4677ae6d.js",
     "runtime~main.js.map": "/SMS-Frontend/static/js/runtime~main.4677ae6d.js.map",
-    "static/js/2.ad758a62.chunk.js": "/SMS-Frontend/static/js/2.ad758a62.chunk.js",
-    "static/js/2.ad758a62.chunk.js.map": "/SMS-Frontend/static/js/2.ad758a62.chunk.js.map",
+    "static/css/2.d5739a04.chunk.css": "/SMS-Frontend/static/css/2.d5739a04.chunk.css",
+    "static/js/2.68e58b4a.chunk.js": "/SMS-Frontend/static/js/2.68e58b4a.chunk.js",
+    "static/js/2.68e58b4a.chunk.js.map": "/SMS-Frontend/static/js/2.68e58b4a.chunk.js.map",
     "index.html": "/SMS-Frontend/index.html",
-    "precache-manifest.ae0dcca3bdc062c543627b0696a5afbd.js": "/SMS-Frontend/precache-manifest.ae0dcca3bdc062c543627b0696a5afbd.js",
+    "precache-manifest.3567ab61430ecbf9f9923eb0ec363c37.js": "/SMS-Frontend/precache-manifest.3567ab61430ecbf9f9923eb0ec363c37.js",
     "service-worker.js": "/SMS-Frontend/service-worker.js",
-    "static/media/logo.svg": "/SMS-Frontend/static/media/logo.ee7cd8ed.svg"
+    "static/css/2.d5739a04.chunk.css.map": "/SMS-Frontend/static/css/2.d5739a04.chunk.css.map",
+    "static/media/logo.svg": "/SMS-Frontend/static/media/logo.5d5d9eef.svg"
   }
 }
