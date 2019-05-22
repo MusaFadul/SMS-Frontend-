@@ -4,14 +4,9 @@ import AppWraper from './containers/AppWrapper'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStroopwafel } from '@fortawesome/free-solid-svg-icons'
+import Raduim from 'radium'
 
 library.add(faStroopwafel)
-
-
-
-
-
-
 class App extends Component {
   render() {
    
@@ -23,4 +18,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Raduim(App);

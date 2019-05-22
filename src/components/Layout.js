@@ -56,16 +56,16 @@ class Layout extends Component {
         message.info('Select End Date', duration);
       }
     return (
-      <div style={{padding:"20px"}} >
+      <div className = "layout" >
         <DatePicker  onChange={this.onChange} 
-                      size="default" 
+                      size="large" 
                       onMouseEnter={this.onHintStartDate} 
                       onMouseLeave={this.onMouseleaveHinterFirst}>Start Date</DatePicker>
         <DatePicker  onChange={this.onChange} 
-                      size="default" 
+                      size="large" 
                       onMouseEnter={this.onHintEtartDate} 
                       onMouseLeave={this.onMouseleaveHinterSecond}/>
-        <Button type="primary" style={{marginLeft:"50px",paddingLeft:"30px",paddingRight:"30px"}} size="large">Filter</Button>
+        <Button type="primary" style={{marginLeft:"20px",paddingLeft:"40px",paddingRight:"40px"}} size="large">Filter</Button>
       </div>
     );
   }

@@ -13,9 +13,11 @@ class NavigatorWrapper extends Component {
     const { component } = this.props;
     return (
       <div className="navigation">
-        <header>
-          <Header {...this.props} />
-        </header>
+        
+          <header>
+            <Header {...this.props} />
+          </header>
+        
         {component}
         <footer>
           <Footer {...this.props} />

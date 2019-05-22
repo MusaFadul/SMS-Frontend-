@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faBars } from '@fortawesome/free-solid-svg-icons'
+import { Row, Col } from 'antd'
+import headerStyle from '../styles/header'
+
 
 
 class Header extends Component {
@@ -11,22 +14,25 @@ class Header extends Component {
   render() {
   
     return (
-      
-      <div >
-        <div >
-          <div >
-            <div >
-            <a href="/"> <FontAwesomeIcon icon={faBars} size="3x" style={{color:"black"}}/></a>
-            </div>
-            <div >SMS Coding Challenge</div>
-            <div >
-             <a href="https://musafadul.github.io/SMS-Frontend/form">  <FontAwesomeIcon icon={faUser} size="3x" style={{color:"black"}}/> </a> 
-            </div>
-          </div>
-        </div>
-      </div>
+
+      <div style={{headerStyle}}> 
+                <div  className="faBars">         
+                      <a href="/"> <FontAwesomeIcon icon={faBars}  size="3x"   className="navItem"/></a>
+                  </div>     
+                  <div  className="title">
+                  
+                      <h4 style={{fontWeight: "bold"}}>SMS Coding Challenge</h4>
+                   
+                  </div>
+                  <div className=" user_area">
+                   
+                      <a href="/form">  <FontAwesomeIcon icon={faUser} size="3x"  className="navItem"/> </a>      
+                    </div>           
+        
+    </div>
     );
   }
 }
 
 export default Header;
+
