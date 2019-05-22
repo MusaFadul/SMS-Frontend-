@@ -1,11 +1,15 @@
 import React, { Component } from "react";
-import { DatePicker, Button, Alert, message } from 'antd';
+import { DatePicker, Button, Alert, message,Layout } from 'antd';
 import moment from 'moment';
+import Grid from '../components/Grid'
 
+
+
+const {Content } = Layout;
 
 const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
 const dateFormat = 'YYYY-MM-DD';
-class Layout extends Component {
+class Layout_ extends Component {
   
   state = {
     hinter_first: false,
@@ -56,19 +60,22 @@ class Layout extends Component {
         message.info('Select End Date', duration);
       }
     return (
-      <div className = "layout" >
-        <DatePicker  onChange={this.onChange} 
-                      size="large" 
-                      onMouseEnter={this.onHintStartDate} 
-                      onMouseLeave={this.onMouseleaveHinterFirst}>Start Date</DatePicker>
-        <DatePicker  onChange={this.onChange} 
-                      size="large" 
-                      onMouseEnter={this.onHintEtartDate} 
-                      onMouseLeave={this.onMouseleaveHinterSecond}/>
-        <Button type="primary" style={{marginLeft:"20px",paddingLeft:"40px",paddingRight:"40px"}} size="large">Filter</Button>
-      </div>
+      <Content>
+        <div style={{width:"100% ",height: "10%",padding:"20px", marginLeft : "30%",display: "flex"}} >
+          <DatePicker  onChange={this.onChange} 
+                        size="large" 
+                        onMouseEnter={this.onHintStartDate} 
+                        onMouseLeave={this.onMouseleaveHinterFirst} >Start Date</DatePicker>
+          <DatePicker  onChange={this.onChange} 
+                        size="large" 
+                        onMouseEnter={this.onHintEtartDate} 
+                        onMouseLeave={this.onMouseleaveHinterSecond}/>
+          <Button type="primary" style={{marginLeft:"5%",paddingLeft:"5%",paddingRight:"5%"}} size="large">Filter</Button>
+        </div>
+        <div> <Grid/> </div>
+      </Content>
     );
   }
 }
 
-export default Layout;
+export default Layout_;
