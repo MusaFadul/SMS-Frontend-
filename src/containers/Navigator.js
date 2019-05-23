@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import Grid from '../components/Grid'
 import NavigatorWrapper from "./navigator/NavigatorWrapper";
-import FormValidation from '../pages/FormValidation';
+import FormValidation from '../pages/Form';
 import Layout from '../components/Layout';
 import RegistrationForm from '../pages/Form'
 import { connect } from 'react-redux'

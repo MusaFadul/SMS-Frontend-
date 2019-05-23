@@ -33,7 +33,7 @@ class Header extends Component {
                     </div>     
                     <div   style={{marginLeft:"20%"}}>
                     
-                        <h4 style={{fontWeight: "bold"}}>SMS Coding Challenge</h4>
+                        <h1 style={{fontWeight: "bold"}}>Coding Challenge</h1>
                     
                     </div>
                     <div style={{marginLeft:"20%"}}  onMouseEnter={()=>this.setState({mouseEnterFaUser:true})} onClick = {this.props.onRegistration} onMouseLeave={()=>this.setState({mouseEnterFaUser : false})}>

@@ -73,8 +73,9 @@ class RegistrationForm extends React.Component {
     };
    
     return (
-      <div style={{width:"50%", height:"35%",marginLeft:"24%", marginTop:"9%", marginBottom:"12%"}}>
-        <Form {...formItemLayout} onSubmit={this.handleSubmit} style={{marginLeft:"150px"}}>
+      <div style={{width:"50%", height:"35%",marginLeft:"33%", marginTop:"5%", marginBottom:"10%"}}>
+         <h1 style={{marginRight:"32%", marginBottom:"5%"}}> Registration Form</h1>
+        <Form {...formItemLayout} onSubmit={this.handleSubmit} style={{marginLeft:"0px"}}>
           <Form.Item >
             {getFieldDecorator('email', {
               rules: [
@@ -117,7 +118,7 @@ class RegistrationForm extends React.Component {
             })(<Input.Password onBlur={this.handleConfirmBlur}  prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Confirm Passowrd"/>)}
           </Form.Item>
           <Form.Item  >
-            <Button type="primary" htmlType="submit" onMouseEnter = {()=>this.setState({color:"red"})} onMouseLeave = {()=>this.setState({color:""})} style= {{width:"285px",backgroundColor:this.state.color}}>
+            <Button type="primary" htmlType="submit" onMouseEnter = {()=>this.setState({color:"red"})} onMouseLeave = {()=>this.setState({color:""})} style= {{width:"80%",backgroundColor:this.state.color}}>
               Register
             </Button>
           </Form.Item>

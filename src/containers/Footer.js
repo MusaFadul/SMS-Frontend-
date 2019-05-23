@@ -1,30 +1,25 @@
 import React, { Component } from "react";
+import { Layout } from 'antd';
+const { Header, Footer, Sider, Content } = Layout;
 
-
-class Footer extends Component {
+class Footer_ extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
     return (
-      <div className="footer">
-        <hr />
-        <div className="row ">
-          <div className="col-lg-8 offset-lg-2">
-            <ul className="footer__languages">
-              <li>
-                <a >German</a>
-              </li>
-              <li>
-                <a >English</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <Footer style = {{
+        marginTop:'10px',
+        left: '0',
+        bottom:'0',
+        width: '100%', 
+        textAlign: 'center'}}>
+        <hr />      
+                ©2019 Musa Fadul   
+      </Footer>
     );
   }
 }
 
-export default Footer;
+export default Footer_;
