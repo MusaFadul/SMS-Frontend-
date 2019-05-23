@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/SMS-Frontend/precache-manifest.e6a43bb624b335a0a33e3617323e3c5e.js"
+  "/SMS-Frontend/precache-manifest.073f6ff3dc53e2200553c2532a4c879e.js"
 );
 
 self.addEventListener('message', (event) => {
