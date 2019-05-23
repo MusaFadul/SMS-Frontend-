@@ -6,17 +6,17 @@ const gridItem = (props)=>{
     let style = {
         backgroundColor : "#00a0e9",height:"80px",textAlign:'center',marginRight:"0.1%"
     }
-    const childStyle = {padding:'33px'}
+    const childStyle = {padding:'33px',color:"white"}
     let colorColumnStyle = {backgroundColor:'green',height:"80px",textAlign:'center',marginRight:"0.1%"}
-    let colorColumn = null
+   // let colorColumn = null
     if(props.gridHeader == "true"&props.color == "color"){
       colorColumnStyle = style; 
-      colorColumn = <p style={childStyle}>{props.color}</p> 
+     // colorColumn = <p style={childStyle}>{props.color}</p> 
     }
     if(props.gridHeader == "false"){
         style = { backgroundColor : color,height:"80px",textAlign:'center',marginRight:"0.1%"}
         colorColumnStyle = {backgroundColor:color,height:"80px",textAlign:'center',marginRight:"0.1%"}
-        colorColumn =null
+        //colorColumn =null
       }
 
 
@@ -41,7 +41,7 @@ const gridItem = (props)=>{
             <p style={childStyle}> {props.status}</p>
             </Col>
             <Col span = {span} style={colorColumnStyle} >
-             {colorColumn}
+              <p style={childStyle}>{props.color}</p>
             </Col>        
             </Row>
       </div>

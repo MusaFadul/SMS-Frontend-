@@ -1,31 +1,49 @@
 import React, { Component } from "react";
-import { List, Skeleton, Avatar } from 'antd';
+import { List, Skeleton, Avatar, Alert } from 'antd';
 import GridItem from './GridItem'
 import dataSource from '../dataSource/data.json'
+import { tsImportEqualsDeclaration } from "@babel/types";
 class Grid extends Component {
   constructor(props) {
     super(props);
     this.state = {
       initLoading: false,
-      loading: true,
-     data: [],
-     list: dataSource
+      loading: false,
+      list: ''
     };
   }
 
-  
+  async componentWillMount (){
+    if(!this.props.filter) {
+      this.setState({
+        list:dataSource
+      })
+    }
+  }
+
+  onDataFilter (){
+    var stDate = new Date(this.props.start_date);
+    var edDate = new Date(this.props.end_date);
+    //var edDate = new Date(this.state.list[1]).start_date;
+    const filterdList = []
+   for(let singleItem of dataSource){
+     const singleItemStDate = new Date(singleItem.start_date)
+     const singleItemEdDate = new Date(singleItem.end_date)
+     if( singleItemStDate.valueOf() >= stDate.valueOf() &&  singleItemEdDate.valueOf() <= edDate.valueOf()) {
+      filterdList.push(singleItem)
+     }
+   }
+   return filterdList;
+  }
 
   render() {
+    
     const {list, initLoading, loadMore} = this.state
-    const gridItems = this.state.list.map(i=>{
-      return (<GridItem gridHeader="false"
-          city={i.city}
-          start_date={i.start_date} 
-          end_date={i.end_date} 
-          price={i.price}
-          status={i.status}    
-          color={i.color}/>)
-    })
+    let dataList = list;
+    if(this.props.filter){
+     dataList = this.onDataFilter();
+    }
+   
     return (
       <div >
         <GridItem  gridHeader = "true" color = "color"
@@ -34,10 +52,17 @@ class Grid extends Component {
         end_date="end_date"
         price="price"
         status="status"/>
+        {dataList.length === 0 ?  <Alert
+        message="No Data"
+        description=" Please Select Proper Date Range"
+        type="warning"
+        closable
+        showIcon
+        /> : null}
         <List
          loading={initLoading}
         itemLayout="horizontal"
-        dataSource={list}
+        dataSource={dataList}
         renderItem={item => (    
           <GridItem gridHeader="false"
           city={item.city}
