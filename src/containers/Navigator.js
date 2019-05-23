@@ -5,6 +5,8 @@ import NavigatorWrapper from "./navigator/NavigatorWrapper";
 import FormValidation from '../pages/FormValidation';
 import Layout from '../components/Layout';
 import RegistrationForm from '../pages/Form'
+import { connect } from 'react-redux'
+import { stat } from "fs";
 
 class Navigatgor extends Component {
   constructor(props) {
@@ -19,7 +21,7 @@ class Navigatgor extends Component {
           path="/"
           component={routeProps => (
             <NavigatorWrapper
-              component={<Layout {...routeProps} {...this.props} />}
+              component={this.renderContent()}
               {...routeProps}
               {...this.props}
             />
@@ -39,6 +41,20 @@ class Navigatgor extends Component {
       </Switch>
     );
   }
+  renderContent = ()=> {
+    let componentContent = <Layout/>
+    if(this.props.form) {
+      componentContent = <RegistrationForm/>;
+    }
+    return componentContent;
+  }
 }
 
-export default Navigatgor;
+const mapStateToProps = state => {
+  return {
+      form : state.form,
+      grid: state.grid
+  };
+};
+
+export default connect(mapStateToProps) (Navigatgor);

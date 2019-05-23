@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faBars } from '@fortawesome/free-solid-svg-icons'
-import { Row, Col } from 'antd'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faBars } from '@fortawesome/free-solid-svg-icons';
+import { Row, Col } from 'antd';
 import Radium, { StyleRoot } from 'radium';
+import { connect } from 'react-redux'
 
 
 
@@ -35,9 +36,10 @@ class Header extends Component {
                         <h4 style={{fontWeight: "bold"}}>SMS Coding Challenge</h4>
                     
                     </div>
-                    <div style={{marginLeft:"20%"}}  onMouseEnter={()=>this.setState({mouseEnterFaUser:true})} onMouseLeave={()=>this.setState({mouseEnterFaUser : false})}>
+                    <div style={{marginLeft:"20%"}}  onMouseEnter={()=>this.setState({mouseEnterFaUser:true})} onClick = {this.props.onRegistration} onMouseLeave={()=>this.setState({mouseEnterFaUser : false})}>
                     
-                        <a href="/form">  <FontAwesomeIcon icon={faUser} size="3x"  className="navItem" style={styleColor2}/> </a>      
+                        <a >  <FontAwesomeIcon icon={faUser} size="3x"  className="navItem" style={styleColor2}/> </a> 
+                        <p> {this.props.userIcon} </p>     
                       </div>           
           
       </div>
@@ -46,5 +48,18 @@ class Header extends Component {
   }
 }
 
-export default Radium(Header);
+const mapStateToProps = state => {
+  return {
+      userIcon : state.email
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+      onRegistration : () => dispatch({type: 'REGISTRATION_FORM'})
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)( Header);
 
