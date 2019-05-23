@@ -31,8 +31,8 @@ class Layout_ extends Component {
       }
     return (
       <Content>
-        <div style={{width:"100% ",height: "10%",padding:"20px", marginLeft : "30%",display: "flex"}} >
-          <div style={{marginRight:"20px"}}>
+        <div style={{padding:"20px", marginLeft : "30%",display: "flex"}} >
+          <div style={{marginRight:"20px",display: "flex"}}>
           <DatePicker  onChange={this.onStartDateChange} 
                         size="large" 
                         format={dateFormat}
@@ -44,10 +44,11 @@ class Layout_ extends Component {
                         format={dateFormat}
                         onMouseEnter={this.onHintEtartDate} 
                         onMouseLeave={this.onMouseleaveHinterSecond}/>
-          <Button type="primary" style={{marginLeft:"5%",paddingLeft:"5%",paddingRight:"5%"}} size="large" onClick={this.onFilter}>Filter</Button>
+          <Button type="primary" style={{marginLeft:"5%",paddingLeft:"5%",paddingRight:"5%"}} size="large"
+           onClick={this.onFilter}>Filter</Button>
         </div>
         <div> <Grid {...this.state}/> </div>
-      </Content>
+        </Content>
     );
   }
 

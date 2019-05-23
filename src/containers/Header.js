@@ -27,9 +27,9 @@ class Header extends Component {
     }
     return (
       <StyleRoot>
-        <div style={{width:"100%",height: "80px",display: "flex",backgrounColor:"red",padding: "20px",border: "1px solid #efeaea",marginBottom: "10px"}}> 
-                  <div style={{marginLeft:"20%"}} onMouseEnter={()=>this.setState({mouseEnterFaBar:true})} onMouseLeave={()=>this.setState({mouseEnterFaBar : false})} >         
-                        <a href="/"> <FontAwesomeIcon icon={faBars}  size="3x"   className="navItem" style={styleColor1}/></a>
+        <div style={{width:"100%",height: "100px",display: "flex",backgrounColor:"red",padding: "20px",border: "1px solid #efeaea",marginBottom: "10px"}}> 
+                  <div style={{marginLeft:"20%"}} onMouseEnter={()=>this.setState({mouseEnterFaBar:true})} onClick = {this.props.onGrid}onMouseLeave={()=>this.setState({mouseEnterFaBar : false})} >         
+                        <a> <FontAwesomeIcon icon={faBars}  size="3x"   className="navItem" style={styleColor1}/></a>
                     </div>     
                     <div   style={{marginLeft:"20%"}}>
                     
@@ -56,7 +56,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-      onRegistration : () => dispatch({type: 'REGISTRATION_FORM'})
+      onRegistration : () => dispatch({type: 'REGISTRATION_FORM'}),
+      onGrid : () => dispatch({type: 'GRID'})
   };
 };
 

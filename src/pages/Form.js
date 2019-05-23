@@ -1,7 +1,7 @@
 
 import React, { Component } from "react";
 import {Form, Input, Icon, Select,  Button, AutoComplete,} from 'antd';
-
+import { connect } from 'react-redux'
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
 
@@ -22,6 +22,7 @@ class RegistrationForm extends React.Component {
           this.setState({
             userCredentials : {email : values.email , password : values.password}
           })
+          this.props.onRegister(values)
       }
   };
 
@@ -83,7 +84,7 @@ class RegistrationForm extends React.Component {
   
 
     return (
-      <div style={{width:"50%", height:"35%"}}>
+      <div style={{width:"50%", height:"35%",marginLeft:"24%", marginTop:"9%", marginBottom:"12%"}}>
         <Form {...formItemLayout} onSubmit={this.handleSubmit} style={{marginLeft:"150px"}}>
           <Form.Item >
             {getFieldDecorator('email', {
@@ -135,7 +136,18 @@ class RegistrationForm extends React.Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+      userIcon : state.email
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+      onRegister : (values) => dispatch({type: 'REGISTRATIONED', userCredentials : values}),
+  };
+};
 
 const RegForm = Form.create({ name: 'register' })(RegistrationForm);
 
-export default RegForm;
+export default  connect(mapStateToProps, mapDispatchToProps)( RegForm) ;

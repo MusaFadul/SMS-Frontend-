@@ -6,7 +6,7 @@ import FormValidation from '../pages/FormValidation';
 import Layout from '../components/Layout';
 import RegistrationForm from '../pages/Form'
 import { connect } from 'react-redux'
-import { stat } from "fs";
+
 
 class Navigatgor extends Component {
   constructor(props) {

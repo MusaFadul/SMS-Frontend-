@@ -3,18 +3,31 @@ import { stat } from "fs";
 
 const initialState = {
     email:'',
-    form : null
+    Loading:false,
+    form : true
 }
 
-// Reducer
 const reducer = (state = initialState, action) => {
     if(action.type === "REGISTRATION_FORM") {
-
         return {
-            form : true
+            ...state,
+            form : true,
+            email:''
         }
     }
-    console.log(state.form)
+    if(action.type === "GRID") {
+            return {
+                ...state,
+                form : false,
+            }
+    }
+    if(action.type === "REGISTRATIONED") {
+        return {
+            ...state,
+            email: action.userCredentials.email,
+            form : false,
+        }
+}
     return state;
 };
 

@@ -12,7 +12,7 @@ class AppWrapper extends Component {
     return (
      
         <Navigator />
-      
+     
     );
   }
 }
