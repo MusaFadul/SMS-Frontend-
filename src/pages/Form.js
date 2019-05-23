@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import {Form, Input, Icon, Select,  Button, AutoComplete,} from 'antd';
+import {Form, Input, Icon, Select,  Button, AutoComplete, message} from 'antd';
 import { connect } from 'react-redux'
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
@@ -19,10 +19,8 @@ class RegistrationForm extends React.Component {
 
   callback = (err, values) => {
       if (!err) {
-          this.setState({
-            userCredentials : {email : values.email , password : values.password}
-          })
           this.props.onRegister(values)
+          message.success('User is registerd successfully', 6);
       }
   };
 
