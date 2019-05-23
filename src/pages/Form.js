@@ -8,6 +8,7 @@ const AutoCompleteOption = AutoComplete.Option;
 class RegistrationForm extends React.Component {
   state = {
     confirmDirty: false,
+    color:'',
     autoCompleteResult: [],
     userCredentials:''
   };
@@ -32,7 +33,7 @@ class RegistrationForm extends React.Component {
   compareToFirstPassword = (rule, value, callback) => {
     const form = this.props.form;
     if (value && value !== form.getFieldValue('password')) {
-      callback('Two passwords that you enter is inconsistent!');
+      callback('Two passwords do not match!');
     } else {
       callback();
     }
@@ -70,17 +71,7 @@ class RegistrationForm extends React.Component {
         sm: { span: 16 },
       },
     };
-    const prefixSelector = getFieldDecorator('prefix', {
-      initialValue: '86',
-    })(
-      <Select style={{ width: 70 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>,
-    );
-
-  
-
+   
     return (
       <div style={{width:"50%", height:"35%",marginLeft:"24%", marginTop:"9%", marginBottom:"12%"}}>
         <Form {...formItemLayout} onSubmit={this.handleSubmit} style={{marginLeft:"150px"}}>
@@ -103,7 +94,8 @@ class RegistrationForm extends React.Component {
               rules: [
                 {
                   required: true,
-                  message: 'Please input your password!',
+                  min:8,
+                  message: 'Please input password at least 8 characters !',
                 },
                 {
                   validator: this.validateToNextPassword,
@@ -125,7 +117,7 @@ class RegistrationForm extends React.Component {
             })(<Input.Password onBlur={this.handleConfirmBlur}  prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Confirm Passowrd"/>)}
           </Form.Item>
           <Form.Item  >
-            <Button type="primary" htmlType="submit" style={{width:"285px"}} >
+            <Button type="primary" htmlType="submit" onMouseEnter = {()=>this.setState({color:"red"})} onMouseLeave = {()=>this.setState({color:""})} style= {{width:"285px",backgroundColor:this.state.color}}>
               Register
             </Button>
           </Form.Item>
