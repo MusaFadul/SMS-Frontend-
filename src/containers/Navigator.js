@@ -4,6 +4,7 @@ import Grid from '../components/Grid'
 import NavigatorWrapper from "./navigator/NavigatorWrapper";
 import FormValidation from '../pages/FormValidation';
 import Layout from '../components/Layout';
+import RegistrationForm from '../pages/Form'
 
 class Navigatgor extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class Navigatgor extends Component {
           path="/form"
           component={routeProps => (
             <NavigatorWrapper
-              component={<FormValidation {...routeProps} {...this.props} />}
+              component={<RegistrationForm {...routeProps} {...this.props} />}
               {...routeProps}
               {...this.props}
             />
