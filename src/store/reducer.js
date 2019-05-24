@@ -4,7 +4,11 @@ import { stat } from "fs";
 const initialState = {
     email:'',
     Loading:false,
-    form : true
+    form : true,
+    showBackdrop:false,
+    checked:true,
+    HideColumn:'',
+    showSideDrawer:false
 }
 
 const reducer = (state = initialState, action) => {
@@ -15,11 +19,28 @@ const reducer = (state = initialState, action) => {
             email:''
         }
     }
-    if(action.type === "GRID") {
+    if(action.type === "SIDEDRAWER") {
             return {
                 ...state,
-                form : false,
+                showBackdrop:true,
+                showSideDrawer:true
             }
+    }
+    if(action.type === "HIDEBACKDROP") {
+        return {
+            ...state,
+            showBackdrop:false,
+            showSideDrawer:false
+            
+        }
+    }
+    if(action.type === "UNCHECKED" && action.payload.name ) {
+        return {
+            ...state,
+            checked : action.payload.checked,
+            HideColumn: action.payload.name
+            
+        }
     }
     if(action.type === "REGISTRATIONED") {
         return {

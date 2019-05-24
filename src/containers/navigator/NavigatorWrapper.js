@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
+import Backdrop from '../../ui/BackDrop'
+import SideDrawer from '../../components/SideDrawer/SideDrawer'
 
 
 class NavigatorWrapper extends Component {
@@ -13,7 +15,8 @@ class NavigatorWrapper extends Component {
     const { component } = this.props;
     return (
       <div className="navigation">
-        
+         <Backdrop />
+         <SideDrawer/>
           <header>
             <Header {...this.props} />
           </header>
