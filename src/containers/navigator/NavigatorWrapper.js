@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Header from "../Header";
-import Footer from "../Footer";
 import Backdrop from '../../ui/BackDrop'
 import SideDrawer from '../../components/SideDrawer/SideDrawer'
+import { connect } from 'react-redux'
+import { Layout } from 'antd';
+const {  Footer } = Layout;
 
 
 class NavigatorWrapper extends Component {
@@ -14,7 +16,7 @@ class NavigatorWrapper extends Component {
    
     const { component } = this.props;
     return (
-      <div className="navigation">
+      <div tysle={{backgroundColor : this.props.AppTheme}}>
          <Backdrop />
          <SideDrawer/>
           <header>
@@ -22,12 +24,33 @@ class NavigatorWrapper extends Component {
           </header>
         
         {component}
-        <footer>
-          <Footer {...this.props} />
+        <footer  >
+        <Footer style = {{
+        marginTop:'10px',
+        left: '0',
+        bottom:'0',
+        width: '100%', 
+        textAlign: 'center', backgroundColor : this.props.AppTheme}}>
+        <hr />      
+                ©2019 Musa Fadul   
+      </Footer>
         </footer>
       </div>
     );
   }
 }
 
-export default NavigatorWrapper;
+const mapStateToProps = state => {
+  return {
+    AppTheme : state.AppTheme
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onHideBackdrop : () => dispatch({type: 'HIDEBACKDROP'}),
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps) (NavigatorWrapper);

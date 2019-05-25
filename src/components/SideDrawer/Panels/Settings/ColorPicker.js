@@ -2,7 +2,7 @@ import React from 'react'
 import reactCSS from 'reactcss'
 import { SketchPicker } from 'react-color'
 
-class SketchExample extends React.Component {
+class ColorPicker extends React.Component {
   state = {
     displayColorPicker: false,
     color: {
@@ -30,7 +30,7 @@ class SketchExample extends React.Component {
     const styles = reactCSS({
       'default': {
         color: {
-          width: '36px',
+          width: '20px',
           height: '14px',
           borderRadius: '2px',
           background: `rgba(${ this.state.color.r }, ${ this.state.color.g }, ${ this.state.color.b }, ${ this.state.color.a })`,
@@ -44,13 +44,14 @@ class SketchExample extends React.Component {
           cursor: 'pointer',
         },
         popover: {
-          position: 'absolute',
-          zIndex: '2',
+          position: 'relative',
+          zIndex: '100000000',
         },
         cover: {
           position: 'fixed',
+          marginRight:"20px",
           top: '0px',
-          right: '0px',
+          right: '200px',
           bottom: '0px',
           left: '0px',
         },
@@ -72,4 +73,4 @@ class SketchExample extends React.Component {
   }
 }
 
-export default SketchExample;
+export default ColorPicker;

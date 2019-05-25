@@ -33,7 +33,7 @@ class Header extends Component {
                     </div>     
                     <div   style={{marginLeft:"20%"}}>
                     
-                        <h1 style={{fontWeight: "bold"}}>Coding Challenge</h1>
+                        <h1 style={{fontWeight: "bold"}}>{this.props.applicationName}</h1>
                     
                     </div>
                     <div style={{marginLeft:"20%"}}  onMouseEnter={()=>this.setState({mouseEnterFaUser:true})} onClick = {this.props.onRegistration} onMouseLeave={()=>this.setState({mouseEnterFaUser : false})}>
@@ -50,7 +50,8 @@ class Header extends Component {
 
 const mapStateToProps = state => {
   return {
-      userIcon : state.email
+      userIcon : state.email,
+      applicationName : state.applicationName,
   };
 };
 

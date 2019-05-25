@@ -1,51 +1,101 @@
-import React  from "react";
+import React , { Component } from "react";
 import { Row, Col } from 'antd';
+import { connect } from 'react-redux'
 
-const gridItem = (props)=>{
-   const color = props.color
-    let style = {
-        backgroundColor : "#00a0e9",height:"80px",textAlign:'center',marginRight:"0.1%"
-    }
-    const childStyle = {padding:'33px',color:"white"}
-    let colorColumnStyle = {backgroundColor:'green',height:"80px",textAlign:'center',marginRight:"0.1%"}
-   // let colorColumn = null
-    if(props.gridHeader == "true"&props.color == "color"){
-      colorColumnStyle = style; 
-     // colorColumn = <p style={childStyle}>{props.color}</p> 
-    }
-    if(props.gridHeader == "false"){
-        style = { backgroundColor : color,height:"80px",textAlign:'center',marginRight:"0.1%"}
-        colorColumnStyle = {backgroundColor:color,height:"80px",textAlign:'center',marginRight:"0.1%"}
-        //colorColumn =null
-      }
+class GridItem extends Component {
+
+  state = {
+    headerFontSize : this.props.headerTextSize,
+    headerFontStyle : this.props.headerFontStyle,
+    elementFontSize : this.props.elementTextSize,
+    elementFontStyle : this.props.elementFontStyle,
+  }
 
 
-    const span = "3"
 
-    return ( 
-        <div style={{width:"80%",height:"80px", marginLeft:"18%", marginTop:"0.1%"}}>
-            <Row type="flex">
-            <Col span = {span}  style={style} >
-                 <p style={childStyle}> {props.city}</p>
-            </Col>
-            <Col span = {span} style={style} >
-             <p style={childStyle}>{props.start_date}</p>
-            </Col>
-            <Col className="gutter-row" span = {span} style={style}>
-              <p style={childStyle}> {props.end_date}</p>
-            </Col>
-            <Col span = {span} style={style}>
-                <p style={childStyle}> {props.price}</p>
-            </Col>
-            <Col span = {span} style={style} >
-            <p style={childStyle}> {props.status}</p>
-            </Col>
-            <Col span = {span} style={colorColumnStyle} >
-              <p style={childStyle}>{props.color}</p>
-            </Col>        
-            </Row>
-      </div>
-    );
+  render() {
+
+   
+    const style = this.onSetStyle().style
+    const childStyle = this.props.childStyle
+    const colorColumnStyle = this.onSetStyle().colorColumnStyle
+ 
+ 
+     const span = "3"
+ 
+     return ( 
+         <div style={{width:"80%",height:"80px", marginLeft:"18%", marginTop:"0.1%"}}>
+             <Row type="flex">
+             <Col span = {span}  style={style} >
+                  <p style={childStyle}> {this.props.city}</p>
+             </Col>
+             <Col span = {span} style={style} >
+              <p style={childStyle}>{this.props.start_date}</p>
+             </Col>
+             <Col className="gutter-row" span = {span} style={style}>
+               <p style={childStyle}> {this.props.end_date}</p>
+             </Col>
+             <Col span = {span} style={style}>
+                 <p style={childStyle}> {this.props.price}</p>
+             </Col>
+             <Col span = {span} style={style} >
+             <p style={childStyle}> {this.props.status}</p>
+             </Col>
+             <Col span = {span} style={colorColumnStyle} >
+               <p style={childStyle}>{this.props.color}</p>
+             </Col>        
+             </Row>
+       </div>
+     );
+
+  }
+
+  onSetStyle = () => {
+    
+    const color = this.props.color
+     let style = {
+         backgroundColor : "#00a0e9",height:"80px",textAlign:'center',marginRight:"0.1%", textSize : this.props.elementTextSize, fontStyle : this.props.elementFontStyle
+     }
+     let childStyle = null
+     let colorColumnStyle = {backgroundColor:'green',height:"80px",textAlign:'center',marginRight:"0.1%"}
+    
+     if(this.props.gridHeader === "true"){
+       const fontSize = this.props.headerFontSize
+       const fontStyle = this.props.headerFontStyle
+      console.log(this.props.headerTextSize + '  header true  66666666'  + "15px"+ this.props.headerTextSize)
+          colorColumnStyle = style; 
+          childStyle = {padding:'33px',color:"red", fontSize : fontSize, fontStyle : fontSize}
+      
+     }
+     if(this.props.gridHeader === "false"){
+      //console.log(this.props.elementTextSize + '55555' + this.props.elementFontStyle)
+         style = { backgroundColor : color,height:"80px",textAlign:'center',marginRight:"0.1%"}
+         colorColumnStyle = {backgroundColor:color,height:"80px",textAlign:'center',marginRight:"0.1%"}
+         childStyle = {padding:'33px',color:"white", fontSize : this.props.elementTextSize, fontStyle : this.props.elementFontStyle}
+         
+       }
+
+       var styleModel = {style : style , childStyle : childStyle , colorColumnStyle : colorColumnStyle } 
+
+       return styleModel
+  }
 }
 
-export default gridItem;
+
+const mapStateToProps = state => {
+  return {
+      headerTextSize : state.headerTextSize,
+      HeaderFontStyle : state.HeaderFontStyle,
+      elementTextSize : state.elementTextSize,
+      elementFontStyle :state.elementFontStyle,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+      onAppNameChanging : (newAppName) => dispatch({type: 'APPNAMECHANING', payload: newAppName}),
+      onAppNameChanged : (AppName) => dispatch({type: 'APPNAMECHANGED', payload: AppName}),
+  };
+};
+
+export default  connect(mapStateToProps, mapDispatchToProps) (GridItem);

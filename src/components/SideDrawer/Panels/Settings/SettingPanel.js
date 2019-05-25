@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
-import { Row, Col, Radio, Slider, Tooltip, Select } from 'antd';
+import { Row, Col, Slider, Tooltip, Select, Tabs } from 'antd';
+import ApplicationSettingTab from './Tabs/ApplicationSetting'
+import GridSettingTab from './Tabs/GridSetting'
 import ColorPicker from './ColorPicker'
+import { connect } from 'react-redux'
+import Constant from '../../../../store/constants'
+import { continueStatement } from '@babel/types';
+const TabPane = Tabs.TabPane;
 
 
 const Option = Select.Option;
@@ -13,108 +19,56 @@ class SettingPanel extends React.Component {
       value: 1,
     };
     
-    onChange = e => {
-      console.log('radio checked', e.target.value);
-      this.setState({
-        value: e.target.value,
-      });
-    };
-     handleChange = (value) =>{
-      console.log(`selected ${value}`);
-    }
+    
 
+  callback = (key)=> {
+  console.log(key);
+}  
 
-      
         render() {
           return (
-            <div style={{with:"24%", height:"24%"}}>  
-            <p  style={{fontWeight: "bold"}}>Grid Header Settings</p>    
-       <div>
-            
-    <Row>
-      <Col span={6}>Text Size</Col>
-      <Col span={6} >Large</Col>
-      <Col span={6}>medium</Col>
-      <Col span={6}>small</Col>
-    </Row>
-    <Row>
-      <Col span={6}></Col>
-      <Col span={6}><Radio/></Col>
-      <Col span={6}><Radio/></Col>
-      <Col span={6}><Radio/></Col>
-    </Row>
-    <Row style={{marginTop:"0%"}}>
-      <Col span={6}>Font Style</Col>
-      <Col span={6}  style={{fontStyle:"normal"}}>normal</Col>
-      <Col span={6} style={{fontStyle:"italic"}}>italic</Col>
-      <Col span={6} style={{fontStyle:"oblique"}}>oblique</Col>
-    </Row>
-    <Row>
-      <Col span={6}></Col>
-      <Col span={6}><Radio/></Col>
-      <Col span={6}><Radio/></Col>
-      <Col span={6}><Radio/></Col>
-    </Row>
-
-    <Row style={{marginTop:"0%"}}>
-      <Col span={6} >Color</Col>
-      <Col span={6}>Text Color</Col>
-      <Col span={8}>Background Color</Col>
-    </Row>
-
-    <Row style={{marginTop:"0%"}}>
-      <Col span={6} ></Col>
-      <Col span={6}><ColorPicker/></Col>
-      <Col span={8}><ColorPicker/></Col>
-    </Row>
-
-    </div>
-
-    <p style={{marginTop : "5%" , fontWeight: "bold"}}>Grid Elements Settings</p> 
-    <div>
-            
-            <Row>
-              <Col span={6}>Text Size</Col>
-              <Col span={6} >Large</Col>
-              <Col span={6}>medium</Col>
-              <Col span={6}>small</Col>
-            </Row>
-            <Row>
-              <Col span={6}></Col>
-              <Col span={6}><Radio/></Col>
-              <Col span={6}><Radio/></Col>
-              <Col span={6}><Radio/></Col>
-            </Row>
-            <Row style={{marginTop:"0%"}}>
-              <Col span={6}>Font Style</Col>
-              <Col span={6}  style={{fontStyle:"normal"}}>normal</Col>
-              <Col span={6} style={{fontStyle:"italic"}}>italic</Col>
-              <Col span={6} style={{fontStyle:"oblique"}}>oblique</Col>
-            </Row>
-            <Row>
-              <Col span={6}></Col>
-              <Col span={6}><Radio/></Col>
-              <Col span={6}><Radio/></Col>
-              <Col span={6}><Radio/></Col>
-            </Row>
-        
-            <Row style={{marginTop:"0%"}}>
-              <Col span={6} >Color</Col>
-              <Col span={6}>Text Color</Col>
-              <Col span={8}>Background Color</Col>
-            </Row>
-        
-            <Row style={{marginTop:"0%"}}>
-              <Col span={6} ></Col>
-              <Col span={6}><ColorPicker/></Col>
-              <Col span={8}><ColorPicker/></Col>
-            </Row>
-        
-            </div>
-   
-            </div>
-          );
+            <div style={{with:"24%", height:"100%"  }}>  
+              <Tabs defaultActiveKey="2" onChange={this.callback} >
+                <TabPane tab="Application" key="1"  >
+                <ApplicationSettingTab  name="APPLICATION"/>
+                </TabPane>
+                <TabPane tab="Grid Header" key="2"  >
+                <GridSettingTab  identifier = {Constant.gridHeader} attributes = {this.props.header} />
+                </TabPane>
+                <TabPane tab="Grid Elements" key="3">
+                <GridSettingTab  identifier = {Constant.gridElements} attributes = {this.props.element} />
+                </TabPane>
+            </Tabs>
+          </div>
+        );
     }   
 }
+const mapStateToProps = state => {
+  return {
+    header : {
+    LargeTextSize : state.headerlargeTextSize,
+    mediumTextSize : state.headerMediumTextSize,
+    smallTextSize : state.headerSmallTextSize,
+    normalFontStyle: state.headerNormalFontStyle,
+    italicFontStyle :state.headerItalicFontStyle,
+    obliqueFontStyle :state.headerObliqueFontStyle,
+    },
+    element : {
+    LargeTextSize : state.elementlargeTextSize,
+    mediumTextSize : state.elementlMediumTextSize,
+    smallTextSize : state.elementSmallTextSize,
+    normalFontStyle: state.elementNormalFontStyle,
+    italicFontStyle :state.elementItalicFontStyle,
+    obliqueFontStyle :state.elementObliqueFontStyle,
+    }
+  };
+};
 
-export default SettingPanel;
+const mapDispatchToProps = dispatch => {
+  return {
+      onAppNameChanging : (newAppName) => dispatch({type: 'APPNAMECHANING', payload: newAppName}),
+      onAppNameChanged : (AppName) => dispatch({type: 'APPNAMECHANGED', payload: AppName}),
+  };
+};
+
+export default  connect(mapStateToProps, mapDispatchToProps) (SettingPanel);

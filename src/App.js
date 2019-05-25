@@ -4,9 +4,10 @@ import AppWraper from './containers/Navigator'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStroopwafel } from '@fortawesome/free-solid-svg-icons'
-import Raduim from 'radium'
 
+import Raduim from 'radium'
 import { connect } from 'react-redux'
+
 
 library.add(faStroopwafel)
 class App extends Component {
@@ -15,7 +16,7 @@ class App extends Component {
   render() {
    
     return (
-      <div style={{ textAlign:"center"}}> 
+      <div style={{ textAlign:"center", backgroundColor: this.props.AppTheme}}> 
        
         <AppWraper/>
       </div>
@@ -23,6 +24,13 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    AppTheme : state.AppTheme
+  };
+};
 
 
-export default Raduim(App);
+
+
+export default connect(mapStateToProps) (App);

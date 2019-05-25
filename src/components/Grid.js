@@ -3,6 +3,7 @@ import { List, Skeleton, Avatar, Alert } from 'antd';
 import GridItem from './GridItem'
 import dataSource from '../dataSource/data.json'
 import { tsImportEqualsDeclaration } from "@babel/types";
+import { connect } from 'react-redux'
 class Grid extends Component {
   constructor(props) {
     super(props);
@@ -43,10 +44,12 @@ class Grid extends Component {
     if(this.props.filter){
      dataList = this.onDataFilter();
     }
+    const  childStyleHeder = {padding:'33px',color:"red", fontSize :  this.props.headerTextSize ,  fontStyle : this.props.HeaderFontStyle }
+    const  childStyleElement = {padding:'33px',color:"white", fontSize : this.props.elementTextSize, fontStyle : this.props.elementFontStyle}
    
     return (
       <div style={{width:"100% ",height: "100%"}}>
-        <GridItem  gridHeader = "true" color = "color"
+        <GridItem  gridHeader = "true" color = "color" childStyle = {childStyleHeder}
         city="City"
         start_date="start_date"
         end_date="end_date"
@@ -64,14 +67,15 @@ class Grid extends Component {
         itemLayout="horizontal"
         dataSource={dataList}
         renderItem={item => (    
-          <GridItem gridHeader="false"
+          <GridItem gridHeader="false"  childStyle = {childStyleElement} 
+          textSize = {this.props.elementTextSize}
+          textStyle = {this.props.elementFontStyle}
           city={item.city}
           start_date={item.start_date} 
           end_date={item.end_date} 
           price={item.price}
           status={item.status}    
           color={item.color}/>
-          
         )}
       />
       </div>
@@ -79,4 +83,20 @@ class Grid extends Component {
   }
 }
 
-export default Grid;
+const mapStateToProps = state => {
+  return {
+      headerTextSize : state.headerTextSize,
+      HeaderFontStyle : state.HeaderFontStyle,
+      elementTextSize : state.elementTextSize,
+      elementFontStyle :state.elementFontStyle,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+      onAppNameChanging : (newAppName) => dispatch({type: 'APPNAMECHANING', payload: newAppName}),
+      onAppNameChanged : (AppName) => dispatch({type: 'APPNAMECHANGED', payload: AppName}),
+  };
+};
+
+export default  connect(mapStateToProps, mapDispatchToProps) (Grid);

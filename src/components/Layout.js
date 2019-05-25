@@ -31,7 +31,7 @@ class Layout_ extends Component {
       }
     return (
       <Content>
-        <div style={{padding:"20px", marginLeft : "30%",display: "flex"}} >
+        <div style={{padding:"20px", marginLeft : "30%",display: "flex" }} >
           <div style={{marginRight:"20px",display: "flex"}}>
           <DatePicker  onChange={this.onStartDateChange} 
                         size="large" 
