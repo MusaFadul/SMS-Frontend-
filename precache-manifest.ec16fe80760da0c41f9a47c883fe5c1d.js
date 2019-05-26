@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e898b114d15f4ff2129c7109050c55f9",
+    "revision": "ceb48b6abc23b1ae9e79bb4f37209cdd",
     "url": "/SMS-Frontend/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SMS-Frontend/static/js/2.340cd966.chunk.js"
   },
   {
-    "revision": "902c518ddbd1dda3919c",
-    "url": "/SMS-Frontend/static/js/main.a5cfb675.chunk.js"
+    "revision": "4fb3c26bf702ef3abc2e",
+    "url": "/SMS-Frontend/static/js/main.4dfd73df.chunk.js"
   },
   {
     "revision": "85e17bdd877347380b06",
