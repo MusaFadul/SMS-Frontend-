@@ -18,12 +18,9 @@ class GridItem extends Component {
    
     const style = this.onSetStyle().style
     const childStyle = this.props.childStyle
-    const colorColumnStyle = this.onSetStyle().colorColumnStyle
- 
- 
-     const span = "3"
- 
-     return ( 
+    //const colorColumnStyle = this.onSetStyle().colorColumnStyle
+    const span = "3"
+    return ( 
          <div style={{width:"80%",height:"80px", marginLeft:"18%", marginTop:"0.1%"}}>
              <Row type="flex">
             {this.props.showCityColumn ? <Col span = {span}  style={style} >
@@ -58,7 +55,7 @@ class GridItem extends Component {
          backgroundColor : headerBackgroundColor ,  height:"80px",textAlign:'center',marginRight:"0.1%", textSize : this.props.elementTextSize, fontStyle : this.props.elementFontStyle
      }
      let childStyle = null
-     let colorColumnStyle = {backgroundColor:'green',height:"80px",textAlign:'center',marginRight:"0.1%"}
+    // let colorColumnStyle = {backgroundColor:'green',height:"80px",textAlign:'center',marginRight:"0.1%"}
     
      if(this.props.gridHeader === "true" && this.props.textColor){
        const fontSize = this.props.headerFontSize
@@ -67,27 +64,27 @@ class GridItem extends Component {
         backgroundColor : "red",height:"80px",textAlign:'center',marginRight:"0.1%", textSize : this.props.elementTextSize, fontStyle : this.props.elementFontStyle
     }
       console.log(this.props.headerTextSize + '  header true  66666666'  + "15px"+ this.props.headerTextSize)
-          colorColumnStyle = style; 
+         // colorColumnStyle = style; 
           childStyle = {padding:'33px',color:"red", fontSize : fontSize, fontStyle : fontSize}
       
      }
      if(this.props.gridHeader === "false" && this.props.backgroundColor === true){
-      //console.log(this.props.elementTextSize + '55555' + this.props.elementFontStyle)
          style = { backgroundColor : this.props.backgroundColor,height:"80px",textAlign:'center',marginRight:"0.1%"}
-         colorColumnStyle = {backgroundColor:color,height:"80px",textAlign:'center',marginRight:"0.1%"}
+        // colorColumnStyle = {backgroundColor:color,height:"80px",textAlign:'center',marginRight:"0.1%"}
          childStyle = {padding:'33px',color:"white", fontSize : this.props.elementTextSize, fontStyle : this.props.elementFontStyle}
          
        }
 
        if(this.props.gridHeader === "false" && this.props.backgroundColor === "default"){
-        //console.log(this.props.elementTextSize + '55555' + this.props.elementFontStyle)
            style = { backgroundColor : color,height:"80px",textAlign:'center',marginRight:"0.1%"}
-           colorColumnStyle = {backgroundColor:color,height:"80px",textAlign:'center',marginRight:"0.1%"}
+           //colorColumnStyle = {backgroundColor:color,height:"80px",textAlign:'center',marginRight:"0.1%"}
            childStyle = {padding:'33px',color:"white", fontSize : this.props.elementTextSize, fontStyle : this.props.elementFontStyle}
            
          }
+          //try this for the style and un comment the others
+         // var styleModel = {style : style , childStyle : childStyle , colorColumnStyle : colorColumnStyle }
 
-       var styleModel = {style : style , childStyle : childStyle , colorColumnStyle : colorColumnStyle } 
+       var styleModel = {style : style , childStyle : childStyle  } 
 
        return styleModel
   }

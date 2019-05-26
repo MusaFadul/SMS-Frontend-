@@ -5,7 +5,7 @@ import Constant from './constants'
 const initialState = {
     email:'',
     Loading:false,
-    form : false,
+    form : true,
     showBackdrop:false,
     checked:true,
     HideColumn:'',
