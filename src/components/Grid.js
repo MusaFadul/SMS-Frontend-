@@ -44,12 +44,14 @@ class Grid extends Component {
     if(this.props.filter){
      dataList = this.onDataFilter();
     }
-    const  childStyleHeder = {padding:'33px',color:"red", fontSize :  this.props.headerTextSize ,  fontStyle : this.props.HeaderFontStyle }
-    const  childStyleElement = {padding:'33px',color:"white", fontSize : this.props.elementTextSize, fontStyle : this.props.elementFontStyle}
+    const  childStyleHeder = {padding:'33px',color:this.props.headerTextColor, fontSize :  this.props.headerTextSize ,  fontStyle : this.props.HeaderFontStyle }
+    const  childStyleElement = {padding:'33px',color:this.props.elementTextColor, fontSize : this.props.elementTextSize, fontStyle : this.props.elementFontStyle}
    
     return (
       <div style={{width:"100% ",height: "100%"}}>
-        <GridItem  gridHeader = "true" color = "color" childStyle = {childStyleHeder}
+        <GridItem  gridHeader = "true" color = "color" 
+        childStyle = {childStyleHeder} 
+        backgroundColor = {this.props.headerBackgroundColor}
         city="City"
         start_date="start_date"
         end_date="end_date"
@@ -68,6 +70,8 @@ class Grid extends Component {
         dataSource={dataList}
         renderItem={item => (    
           <GridItem gridHeader="false"  childStyle = {childStyleElement} 
+          textColor = {this.props.headerTextColor}
+          backgroundColor = {this.props.elementBackgroundColor}
           textSize = {this.props.elementTextSize}
           textStyle = {this.props.elementFontStyle}
           city={item.city}
@@ -89,6 +93,10 @@ const mapStateToProps = state => {
       HeaderFontStyle : state.HeaderFontStyle,
       elementTextSize : state.elementTextSize,
       elementFontStyle :state.elementFontStyle,
+      headerTextColor : state.headerTextColor,
+      headerBackgroundColor : state.headerBackgroundColor,
+      elementTextColor:state.elementTextColor,
+      elementBackgroundColor:state.elementBackgroundColor
   };
 };
 

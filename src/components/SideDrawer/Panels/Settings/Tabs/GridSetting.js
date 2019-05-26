@@ -32,12 +32,15 @@ class GridSettingTab extends React.Component {
         <div style={{with:"100%", height:"150%"}} onClick={()=>this.setState({hideColorPicker:false})}>  
           <Row style={{marginTop:"5%"}}>
             <Col span={6}>Text Color</Col>
-            <Col span={6}><ColorPicker display={this.state.hideColorPicker} /></Col>
+            <Col span={6}><ColorPicker name = {Constatnt.textColor} identifier = {this.props.identifier}/></Col>
+            <Col span={6}>default</Col>
+            <Col span={6}><RadioButton  name = {Constatnt.defaultTextColor} identifier = {this.props.identifier} checked = {this.props.attributes.defaultTextColor} /></Col>
         </Row>
         <Row style={{marginTop:"5%"}}>
             <Col span={6} >Background Color</Col>
-           
-            <Col span={6}><ColorPicker display={this.state.hideColorPicker} /></Col>
+            <Col span={6}><ColorPicker  name = {Constatnt.backgroundColor } identifier = {this.props.identifier}/></Col>
+            <Col span={6}>defalut</Col>
+            <Col span={6}><RadioButton  name = {Constatnt.defaultBackgroundColor} identifier = {this.props.identifier} checked = {this.props.attributes.defaultBackgroundColor} /></Col>
         </Row>       
         <Row style={{marginTop:"5%"}}>
             <Col span={6}>Text Size</Col>

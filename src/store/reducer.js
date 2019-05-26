@@ -27,20 +27,109 @@ const initialState = {
     headerNormalFontStyle:true,
     headerItalicFontStyle:false,
     headerObliqueFontStyle:false,
+    headerTextColor:"white",
+    headerBackgroundColor:"#00a0e9",
+    headerDefaultTextColor:'',
+    headerDefaultBackgroundColor:'',
+    headerDefaultTextColorRadio:true,
+    headerDefaultBackgroundColorRadio:true,
 
-         
     elementlargeTextSize:false,
     elementlMediumTextSize:true,
     elementSmallTextSize:false,
     elementNormalFontStyle:true,
     elementItalicFontStyle:false,
     elementObliqueFontStyle:false,
+    elementTextColor:"white",
+    elementBackgroundColor:"default",
+    elementDefaultTextColor:'',
+    elementDefaultBackgroundColor:'',
+    elementDefaultTextColorRadio : true,
+    elementDefaultBackgroundColorRadio:true
 
         
 
 }
 
 const reducer = (state = initialState, action) => {
+
+    if(action.type === "COLORCHANGED" && action.payload.identifier === Constant.gridHeader && action.payload.name === Constant.textColor ) {
+        
+        return {
+            ...state,
+             headerTextColor: action.payload.color,
+             headerDefaultTextColorRadio:false,
+             
+        }
+    }
+
+    if(action.type === "COLORCHANGED" && action.payload.identifier === Constant.gridHeader && action.payload.name === Constant.backgroundColor ) {
+       
+        return {
+            ...state,
+             headerBackgroundColor: action.payload.color,
+             headerDefaultBackgroundColorRadio:false,
+        }
+    }
+
+    if(action.type === "THEMECHANED" && action.payload.identifier === Constant.gridHeader && action.payload.name === Constant.defaultTextColor  ) {
+        return {
+            ...state,
+             headerDefaultTextColorRadio:true,
+             headerTextColor: 'white',
+        }
+    }
+
+    if(action.type === "THEMECHANED" && action.payload.identifier === Constant.gridHeader && action.payload.name === Constant.defaultBackgroundColor ) {
+        return {
+            ...state,
+             headerDefaultBackgroundColorRadio:true,
+             headerBackgroundColor: '#00a0e9',
+        }
+    }
+
+    if(action.type === "COLORCHANGED" && action.payload.identifier === Constant.gridElements && action.payload.name === Constant.textColor) {
+       console.log(  action.payload.name + "   " + Constant.textColor)
+        return {
+            ...state,
+             
+             elementTextColor: action.payload.color,
+             elementDefaultTextColorRadio:false
+        }
+    }
+
+    if(action.type === "COLORCHANGED" && action.payload.identifier === Constant.gridElements && action.payload.name === Constant.backgroundColor) {
+        console.log(  action.payload.name + "   " + Constant.textColor)
+         return {
+             ...state,
+              
+              elementBackgroundColor: action.payload.color,
+              elementDefaultBackgroundColorRadio:false
+         }
+     }
+
+     if(action.type === "THEMECHANED" && action.payload.identifier === Constant.gridElements && action.payload.name === Constant.defaultTextColor ) {
+        return {
+            ...state,
+             elementDefaultTextColorRadio:true,
+             elementTextColor: 'white',
+        }
+    }
+
+    if(action.type === "THEMECHANED" && action.payload.identifier === Constant.gridElements && action.payload.name === Constant.defaultBackgroundColor ) {
+        return {
+            ...state,
+             elementDefaultBackgroundColorRadio:true,
+             elementBackgroundColor: 'default',
+        }
+    }
+
+
+    
+    
+    
+    
+   
 
     if(action.type === "THEMECHANED" && action.payload.identifier === Constant.gridHeader && action.payload.name === Constant.textSizeLarge ) {
         return {

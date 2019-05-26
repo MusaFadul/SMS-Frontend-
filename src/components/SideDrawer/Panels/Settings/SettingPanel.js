@@ -28,7 +28,7 @@ class SettingPanel extends React.Component {
         render() {
           return (
             <div style={{with:"24%", height:"100%"  }}>  
-              <Tabs defaultActiveKey="2" onChange={this.callback} >
+              <Tabs defaultActiveKey="1" onChange={this.callback} >
                 <TabPane tab="Application" key="1"  >
                 <ApplicationSettingTab  name="APPLICATION"/>
                 </TabPane>
@@ -52,6 +52,8 @@ const mapStateToProps = state => {
     normalFontStyle: state.headerNormalFontStyle,
     italicFontStyle :state.headerItalicFontStyle,
     obliqueFontStyle :state.headerObliqueFontStyle,
+    defaultTextColor:state.headerDefaultTextColorRadio,
+    defaultBackgroundColor:state.headerDefaultBackgroundColorRadio
     },
     element : {
     LargeTextSize : state.elementlargeTextSize,
@@ -60,6 +62,8 @@ const mapStateToProps = state => {
     normalFontStyle: state.elementNormalFontStyle,
     italicFontStyle :state.elementItalicFontStyle,
     obliqueFontStyle :state.elementObliqueFontStyle,
+    defaultTextColor:state.elementDefaultTextColorRadio,
+    defaultBackgroundColor:state.elementDefaultBackgroundColorRadio
     }
   };
 };

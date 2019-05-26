@@ -1,6 +1,7 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 import { SketchPicker } from 'react-color'
+import { connect } from 'react-redux'
 
 class ColorPicker extends React.Component {
   state = {
@@ -23,6 +24,8 @@ class ColorPicker extends React.Component {
 
   handleChange = (color) => {
     this.setState({   color: color.rgb })
+    const colorInfo = { identifier : this.props.identifier , color : color.hex , name : this.props.name }
+    this.props.onColorChanged(colorInfo);
   };
 
   render() {
@@ -73,4 +76,11 @@ class ColorPicker extends React.Component {
   }
 }
 
-export default ColorPicker;
+
+const mapDispatchToProps = dispatch => {
+  return {
+      onColorChanged : (colorInfo) => dispatch({type: 'COLORCHANGED', payload: colorInfo}),
+  };
+};
+
+export default  connect(null, mapDispatchToProps) (ColorPicker);

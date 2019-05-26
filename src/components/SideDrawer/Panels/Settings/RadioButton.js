@@ -17,7 +17,7 @@ class RadioButton extends React.Component {
     
     onChange = e => {
       const RadioButtonInfo =  this.props.name 
-      console.log(RadioButtonInfo + "  " + this.props.checked + "  " + this.props.identifier)
+      console.log(RadioButtonInfo + " name " + this.props.checked + "  " + this.props.identifier)
     // this.props.onThemeChanged(RadioButtonInfo)
     };
     
@@ -27,6 +27,7 @@ class RadioButton extends React.Component {
         render() {
             const {checked , name} = this.state
             const ButInfo = { identifier : this.props.identifier, name : name ,checked : checked }
+            console.log(ButInfo)
           return (
             <Radio onChange={()=>this.props.onThemeChanged(ButInfo)}  value={this.state.value} checked = {this.props.checked} />
           );
@@ -42,7 +43,6 @@ const mapStateToProps = state => {
   const mapDispatchToProps = dispatch => {
     return {
         onThemeChanged : (ButInfo) => dispatch({type: 'THEMECHANED' , payload : ButInfo}),
-        //onThemeChanged : (name) => dispatch({type: 'THEMECHANED' , payload : name}),
     };
   };
 
