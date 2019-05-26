@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Checkbox } from 'antd';
+import { Checkbox, Tooltip} from 'antd';
 import { connect } from 'react-redux'
 
 class DisplayElement extends React.Component {
@@ -16,12 +16,12 @@ onChange =(e)=> {
 
 
         render() {
-          
+          const toolTip = "toggle " + this.props.name
           return (
             <div style={{with:"20%", height:"15%"}}>                 
-               
-               <Checkbox onChange={this.onChange} checked={this.props.checked}></Checkbox>
-               
+              <Tooltip placement="topLeft" title= { toolTip} arrowPointAtCenter>
+                <Checkbox onChange={this.onChange} checked={this.props.checked}></Checkbox>
+              </Tooltip> 
             </div>
           );
     }   
@@ -29,7 +29,7 @@ onChange =(e)=> {
 
 const mapStateToProps = state => {
     return {
-        checked : state.checked
+        //checked : state.checked
     };
   };
   

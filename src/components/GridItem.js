@@ -26,24 +26,24 @@ class GridItem extends Component {
      return ( 
          <div style={{width:"80%",height:"80px", marginLeft:"18%", marginTop:"0.1%"}}>
              <Row type="flex">
-             <Col span = {span}  style={style} >
+            {this.props.showCityColumn ? <Col span = {span}  style={style} >
                   <p style={childStyle}> {this.props.city}</p>
-             </Col>
-             <Col span = {span} style={style} >
+             </Col> : null}
+            { this.props.showStartDateColumn ? <Col span = {span} style={style} >
               <p style={childStyle}>{this.props.start_date}</p>
-             </Col>
-             <Col className="gutter-row" span = {span} style={style}>
+             </Col> : null}
+             {this.props.showEndDateColumn ? <Col className="gutter-row" span = {span} style={style}>
                <p style={childStyle}> {this.props.end_date}</p>
-             </Col>
-             <Col span = {span} style={style}>
+             </Col> : null}
+             {this.props.showPriceColumn ? <Col span = {span} style={style}>
                  <p style={childStyle}> {this.props.price}</p>
-             </Col>
-             <Col span = {span} style={style} >
+             </Col> : null}
+             {this.props.showStatusColumn ? <Col span = {span} style={style} >
              <p style={childStyle}> {this.props.status}</p>
-             </Col>
-             <Col span = {span} style={style} >
+             </Col> : null}
+             {this.props.ShowColorColumn ? <Col span = {span} style={style} >
                <p style={childStyle}>{this.props.color}</p>
-             </Col>        
+             </Col>  : null}      
              </Row>
        </div>
      );
@@ -96,10 +96,16 @@ class GridItem extends Component {
 
 const mapStateToProps = state => {
   return {
-      headerTextSize : state.headerTextSize,
-      HeaderFontStyle : state.HeaderFontStyle,
-      elementTextSize : state.elementTextSize,
-      elementFontStyle :state.elementFontStyle,
+    headerTextSize : state.headerTextSize,
+    HeaderFontStyle : state.HeaderFontStyle,
+    elementTextSize : state.elementTextSize,
+    elementFontStyle :state.elementFontStyle,
+    showCityColumn : state.showCityColumn,
+    showPriceColumn : state.showPriceColumn,
+    showStatusColumn : state.showStatusColumn,
+    showStartDateColumn : state.showStartDateColumn,
+    showEndDateColumn : state.showEndDateColumn,
+    ShowColorColumn : state.ShowColorColumn
   };
 };
 

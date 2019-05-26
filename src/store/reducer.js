@@ -1,4 +1,5 @@
 import { stat } from "fs";
+import {initialList , dateTRangeFilteredist, priceRangeFilteredist, statusFilteredist } from '../dataSource/DisplayedList'
 import Constant from './constants'
 
 const initialState = {
@@ -8,7 +9,7 @@ const initialState = {
     showBackdrop:false,
     checked:true,
     HideColumn:'',
-    showSideDrawer:true,
+    showSideDrawer:false,
     applicationName:"Coding Challenge",
     darkTheme:false,
     AppTheme:"",
@@ -20,7 +21,6 @@ const initialState = {
     elementFontStyle:"normal",
     header : true,
     element:true,
-    
     headerlargeTextSize:false,
     headerMediumTextSize:true,
     headerSmallTextSize:false,
@@ -33,7 +33,6 @@ const initialState = {
     headerDefaultBackgroundColor:'',
     headerDefaultTextColorRadio:true,
     headerDefaultBackgroundColorRadio:true,
-
     elementlargeTextSize:false,
     elementlMediumTextSize:true,
     elementSmallTextSize:false,
@@ -45,13 +44,46 @@ const initialState = {
     elementDefaultTextColor:'',
     elementDefaultBackgroundColor:'',
     elementDefaultTextColorRadio : true,
-    elementDefaultBackgroundColorRadio:true
-
-        
-
+    elementDefaultBackgroundColorRadio:true,
+    showCityColumn : true,
+    showPriceColumn : true,
+    showStatusColumn : true,
+    showStartDateColumn : true,
+    showEndDateColumn : true,
+    ShowColorColumn : true,
+    displayedList : initialList(),
+    dateRangeFilter:false
 }
 
 const reducer = (state = initialState, action) => {
+
+    if(action.type === "DATERANGEFILTER"  ) {
+        return {
+            ...state,
+            dateRangeFilter : true,
+            displayedList : dateTRangeFilteredist(action.payload.startDate , action.payload.endDate)
+             
+        }
+    }
+
+    if(action.type === "PRICETANGEFILTER"  ) {
+        console.log("filter")
+        return {
+            ...state,
+            dateRangeFilter : true,
+            displayedList : priceRangeFilteredist(action.payload.minPrice , action.payload.maxPrice)
+             
+        }
+    }
+
+    if(action.type === "STATUSFILTER"  ) {
+        return {
+            ...state,
+            displayedList : statusFilteredist(action.payload)    
+        }
+    }
+
+    
 
     if(action.type === "COLORCHANGED" && action.payload.identifier === Constant.gridHeader && action.payload.name === Constant.textColor ) {
         
@@ -310,14 +342,54 @@ const reducer = (state = initialState, action) => {
             
         }
     }
-    if(action.type === "UNCHECKED" && action.payload.name ) {
+
+    if(action.type === "UNCHECKED" && action.payload.name === Constant.cityCheckBox) {
+        console.log( action.payload.checked + '   '  + action.payload.name )
         return {
             ...state,
-            checked : action.payload.checked,
-            HideColumn: action.payload.name
-            
+            showCityColumn : action.payload.checked, 
         }
     }
+
+    if(action.type === "UNCHECKED" && action.payload.name === Constant.colorCheckBox) {
+        console.log( action.payload.checked + '   '  + action.payload.name )
+        return {
+            ...state,
+            ShowColorColumn : action.payload.checked, 
+        }
+    }
+
+    if(action.type === "UNCHECKED" && action.payload.name === Constant.priceCheckBox) {
+        console.log( action.payload.checked + '   '  + action.payload.name )
+        return {
+            ...state,
+            showPriceColumn : action.payload.checked, 
+        }
+    }
+
+    if(action.type === "UNCHECKED" && action.payload.name === Constant.statusCheckBox) {
+        console.log( action.payload.checked + '   '  + action.payload.name )
+        return {
+            ...state,
+            showStatusColumn : action.payload.checked, 
+        }
+    }
+
+    if(action.type === "UNCHECKED" && action.payload.name === Constant.startdateCheckBox) {
+        console.log( action.payload.checked + '   '  + action.payload.name )
+        return {
+            ...state,
+            showStartDateColumn : action.payload.checked, 
+        }
+    }
+    if(action.type === "UNCHECKED" && action.payload.name === Constant.endDateCheckBox) {
+        console.log( action.payload.checked + '   '  + action.payload.name )
+        return {
+            ...state,
+            showEndDateColumn : action.payload.checked, 
+        }
+    }
+
     if(action.type === "REGISTRATIONED") {
         return {
             ...state,

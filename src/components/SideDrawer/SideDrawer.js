@@ -8,13 +8,12 @@ import SettingPanel from './Panels/Settings/SettingPanel'
 
 class SideDrawer extends Component {
 
-    
-  render() {
-    
+  
+  render() { 
     return (
        this.props.showSideDrawer ? <div style={{backgroundColor: this.props.sideDrawerTheme, width:"24%", height:"100%",position:"fixed",boxSizing:"border-box",transition:"transform 0.3s ease-out", 
         zIndex:"200", left:"0", top:"0"}}>
-            <h2 style={{marginTop:"0%"}}>Coding Challenge</h2>
+            <h2 style={{marginTop:"2%"}}>{this.props.applicationName}</h2>
              <SearchPanel/>
              <Divider style={{marginTop:"12%"}}>Display</Divider>
              <DisplayPanel/>
@@ -28,7 +27,8 @@ class SideDrawer extends Component {
 const mapStateToProps = state => {
   return {
     showSideDrawer : state.showSideDrawer,
-    sideDrawerTheme : state.sideDrawerTheme
+    sideDrawerTheme : state.sideDrawerTheme,
+    applicationName : state.applicationName
   };
 };
 

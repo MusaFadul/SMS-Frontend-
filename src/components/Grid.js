@@ -10,40 +10,13 @@ class Grid extends Component {
     this.state = {
       initLoading: false,
       loading: false,
-      list: ''
     };
-  }
-
-  async componentWillMount (){
-    if(!this.props.filter) {
-      this.setState({
-        list:dataSource
-      })
-    }
-  }
-
-  onDataFilter (){
-    var stDate = new Date(this.props.start_date);
-    var edDate = new Date(this.props.end_date);
-    //var edDate = new Date(this.state.list[1]).start_date;
-    const filterdList = []
-   for(let singleItem of dataSource){
-     const singleItemStDate = new Date(singleItem.start_date)
-     const singleItemEdDate = new Date(singleItem.end_date)
-     if( singleItemStDate.valueOf() >= stDate.valueOf() &&  singleItemEdDate.valueOf() <= edDate.valueOf()) {
-      filterdList.push(singleItem)
-     }
-   }
-   return filterdList;
   }
 
   render() {
     
-    const {list, initLoading, loadMore} = this.state
-    let dataList = list;
-    if(this.props.filter){
-     dataList = this.onDataFilter();
-    }
+    const { initLoading, loadMore} = this.state
+    let list = this.props.displayedList
     const  childStyleHeder = {padding:'33px',color:this.props.headerTextColor, fontSize :  this.props.headerTextSize ,  fontStyle : this.props.HeaderFontStyle }
     const  childStyleElement = {padding:'33px',color:this.props.elementTextColor, fontSize : this.props.elementTextSize, fontStyle : this.props.elementFontStyle}
    
@@ -57,7 +30,7 @@ class Grid extends Component {
         end_date="end_date"
         price="price"
         status="status"/>
-        {dataList.length === 0 ?  <Alert
+        {list.length === 0 ?  <Alert
         message="No Data"
         description=" Please Select Proper Date Range"
         type="warning"
@@ -67,7 +40,7 @@ class Grid extends Component {
         <List
          loading={initLoading}
         itemLayout="horizontal"
-        dataSource={dataList}
+        dataSource={list}
         renderItem={item => (    
           <GridItem gridHeader="false"  childStyle = {childStyleElement} 
           textColor = {this.props.headerTextColor}
@@ -86,7 +59,6 @@ class Grid extends Component {
     );
   }
 }
-
 const mapStateToProps = state => {
   return {
       headerTextSize : state.headerTextSize,
@@ -96,7 +68,9 @@ const mapStateToProps = state => {
       headerTextColor : state.headerTextColor,
       headerBackgroundColor : state.headerBackgroundColor,
       elementTextColor:state.elementTextColor,
-      elementBackgroundColor:state.elementBackgroundColor
+      elementBackgroundColor:state.elementBackgroundColor,
+      displayedList : state.displayedList,
+      dateRangeFilter : state.dateRangeFilter
   };
 };
 

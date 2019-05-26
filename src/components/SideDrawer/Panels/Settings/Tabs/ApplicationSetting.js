@@ -13,7 +13,8 @@ class ApplicationSettingTab extends React.Component {
  
     
     state = {
-        newAppName : ""
+        newAppName : "",
+        setBut:"",
     };
     
     onChange = e => {
@@ -51,7 +52,7 @@ class ApplicationSettingTab extends React.Component {
 
 
     render() {
-        const {newAppName} = this.state
+        const {newAppName , setBut } = this.state
         return (
         <div style={{with:"100%", height:"150%"}} onClick={()=>this.setState({hideColorPicker:false})}>  
    
@@ -64,7 +65,10 @@ class ApplicationSettingTab extends React.Component {
             <Col span={1}></Col>
             <Tooltip placement="topLeft" title="Enter Application NAME"> <Col span={14}  style={{fontStyle:"normal"}}><Input placeholder = {this.props.applicationName} onChange={this.onAppNameChanged}/></Col></Tooltip>
             <Col  span={8}>
-            <Button type="primary" size="default" style={{paddingLeft:"40px",paddingRight:"40px"}} onClick={this.setAppName}>Set</Button>
+            <Button type="primary" size="default" style={{backgroundColor : setBut , paddingLeft:"40px",paddingRight:"40px"}} 
+                onMouseEnter = {()=>this.setState({setBut : "red"})} 
+                onMouseLeave = {()=> this.setState({setBut : ""})}
+                onClick={this.setAppName}>Set</Button>
             </Col>
         </Row>
         <Row style={{marginTop:"6%"}}>

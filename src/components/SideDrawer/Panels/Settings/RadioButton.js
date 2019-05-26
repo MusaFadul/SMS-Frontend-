@@ -27,7 +27,6 @@ class RadioButton extends React.Component {
         render() {
             const {checked , name} = this.state
             const ButInfo = { identifier : this.props.identifier, name : name ,checked : checked }
-            console.log(ButInfo)
           return (
             <Radio onChange={()=>this.props.onThemeChanged(ButInfo)}  value={this.state.value} checked = {this.props.checked} />
           );

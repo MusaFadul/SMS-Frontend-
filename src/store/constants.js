@@ -14,6 +14,12 @@
     backgroundColor : "BACKGROUNDCOLOR",
     defaultTextColor : "DEFAULTTEXTCOLOR",
     defaultBackgroundColor : "DEFAULTBACKGROUNDCOLOR",
+    cityCheckBox:"City",
+    priceCheckBox:"Price",
+    colorCheckBox:"Color",
+    startdateCheckBox:"Start Date",
+    endDateCheckBox:"End Date",
+    statusCheckBox:"Status",
  }
 
  export default constant;
