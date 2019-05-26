@@ -63,7 +63,7 @@ class ApplicationSettingTab extends React.Component {
 
         <Row style={{marginTop:"4%"}}>
             <Col span={1}></Col>
-            <Tooltip placement="topLeft" title="Enter Application NAME"> <Col span={14}  style={{fontStyle:"normal"}}><Input placeholder = {this.props.applicationName} onChange={this.onAppNameChanged}/></Col></Tooltip>
+            <Tooltip placement="topLeft" title="Enter Application Name"> <Col span={14}  style={{fontStyle:"normal"}}><Input placeholder = {this.props.applicationName} onChange={this.onAppNameChanged}/></Col></Tooltip>
             <Col  span={8}>
             <Button type="primary" size="default" style={{backgroundColor : setBut , paddingLeft:"40px",paddingRight:"40px"}} 
                 onMouseEnter = {()=>this.setState({setBut : "red"})} 

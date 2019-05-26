@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { List, Skeleton, Avatar, Alert } from 'antd';
+import { List, Skeleton, Avatar, Alert, Tooltip } from 'antd';
 import GridItem from './GridItem'
 import dataSource from '../dataSource/data.json'
 import { tsImportEqualsDeclaration } from "@babel/types";
@@ -32,7 +32,7 @@ class Grid extends Component {
         status="status"/>
         {list.length === 0 ?  <Alert
         message="No Data"
-        description=" Please Select Proper Date Range"
+        description=" Please Make A Proper Selection"
         type="warning"
         closable
         showIcon
@@ -42,7 +42,7 @@ class Grid extends Component {
         itemLayout="horizontal"
         dataSource={list}
         renderItem={item => (    
-          <GridItem gridHeader="false"  childStyle = {childStyleElement} 
+         <GridItem gridHeader="false"  childStyle = {childStyleElement} 
           textColor = {this.props.headerTextColor}
           backgroundColor = {this.props.elementBackgroundColor}
           textSize = {this.props.elementTextSize}

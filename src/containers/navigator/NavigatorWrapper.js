@@ -26,11 +26,11 @@ class NavigatorWrapper extends Component {
         {component}
         <footer  >
         <Footer style = {{
-        marginTop:'10px',
-        left: '0',
-        bottom:'0',
-        width: '100%', 
-        textAlign: 'center', backgroundColor : this.props.AppTheme}}>
+          marginTop:'10px',
+          left: '0',
+          bottom:'0',
+          width: '100%', 
+          textAlign: 'center', backgroundColor : this.props.AppTheme}}>
         <hr />      
                 ©2019 Musa Fadul   
       </Footer>

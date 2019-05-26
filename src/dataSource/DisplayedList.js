@@ -7,34 +7,49 @@ export  const initialList = () => {
 export  const dateTRangeFilteredist = ( startDate , endDate) => {
     var stDate = new Date(startDate);
     var edDate = new Date(endDate);
-    const filterdList = []
+    const filteredList = []
     for(let singleItem of dataSource){
      const singleItemStDate = new Date(singleItem.start_date)
      const singleItemEdDate = new Date(singleItem.end_date)
      if( singleItemStDate.valueOf() >= stDate.valueOf() &&  singleItemEdDate.valueOf() <= edDate.valueOf()) {
-      filterdList.push(singleItem)
+      filteredList.push(singleItem)
      }
    }
-   return filterdList;
+   return filteredList;
 }
 
 export  const priceRangeFilteredist = ( minPrice , maxPrice) => {
-    const filterdList = []
+    const filteredList = []
     for(let singleItem of dataSource){
     if( singleItem.price >= minPrice &&  singleItem.price <=  maxPrice) {
-      filterdList.push(singleItem)
+      filteredList.push(singleItem)
      }
    }
-   return filterdList;
+   return filteredList;
 }
 
 export  const statusFilteredist = ( status) => {
-    const filterdList = []
+    const filteredList = []
         for(let singleItem of dataSource){
     if( singleItem.status === status) {
-        filterdList.push(singleItem)
+      filteredList.push(singleItem)
      }
    }
-   return filterdList;
+   return filteredList;
+}
+
+export  const CityNameFilteredist = ( name ) => {
+  console.log(name)
+  let filteredList = []
+  if(name.length === 0 ) {
+      filteredList = dataSource
+  }
+
+  for(let singleItem of dataSource){
+    if( singleItem.city === name) {
+      filteredList.push(singleItem)
+    }
+ }
+ return filteredList;
 }
 

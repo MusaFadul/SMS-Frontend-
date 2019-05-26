@@ -1,5 +1,5 @@
 import { stat } from "fs";
-import {initialList , dateTRangeFilteredist, priceRangeFilteredist, statusFilteredist } from '../dataSource/DisplayedList'
+import {initialList , dateTRangeFilteredist, priceRangeFilteredist, statusFilteredist , CityNameFilteredist } from '../dataSource/DisplayedList'
 import Constant from './constants'
 
 const initialState = {
@@ -56,6 +56,14 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
+
+    if(action.type === "CITYNAMEFILTER") {
+        return {
+            ...state,
+            displayedList : CityNameFilteredist(action.payload)
+             
+        }
+    }
 
     if(action.type === "DATERANGEFILTER"  ) {
         return {
@@ -324,6 +332,7 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             form : true,
+            showSideDrawer : false,
             email:''
         }
     }

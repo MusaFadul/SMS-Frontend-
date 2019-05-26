@@ -16,7 +16,7 @@ class App extends Component {
   render() {
    
     return (
-      <div style={{ textAlign:"center", backgroundColor: this.props.AppTheme}}> 
+      <div style={{ textAlign:"center", backgroundColor: this.props.AppTheme , width:"100%", height:"100%"}}> 
        
         <AppWraper/>
       </div>

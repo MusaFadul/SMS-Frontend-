@@ -61,7 +61,7 @@ class DisplayPanel extends React.Component {
           <Col span={6} >Status</Col>
           <Col span={12} >
             <Tooltip placement="bottom" title= {this.props.showStatusColumn ?" Filter By Status" : "Please  Enable Status CheckBox "} arrowPointAtCenter>
-              <Select defaultValue="Once" style={{ width: "90%" , marginTop :"2%" }} onChange={this.handleStatusChange} disabled = {SelectStatus}>
+              <Select  placeholder="Select a Status" style={{ width: "90%" , marginTop :"2%" }} onChange={this.handleStatusChange} disabled = {SelectStatus}>
                 <Option value="Once">Once</Option>
                 <Option value="Daily">Daily</Option>
                 <Option value="Weekly" >Weekly</Option>
