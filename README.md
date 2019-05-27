@@ -15,4 +15,4 @@ Open http://localhost:3000 to view it in the browser.
 
 ### `App Pages`
 
-<img src="public/images/reg.jpg"/>
+<img src="public/images/reg.JPG"/>
