@@ -5,6 +5,7 @@ import dataSource from '../dataSource/data.json'
 import { tsImportEqualsDeclaration } from "@babel/types";
 import { connect } from 'react-redux'
 class Grid extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -53,31 +54,30 @@ class Grid extends Component {
           price={item.price}
           status={item.status}    
           color={item.color}/>
-        )}
-      />
+        )}/>
       </div>
     );
   }
 }
 const mapStateToProps = state => {
   return {
-      headerTextSize : state.headerTextSize,
-      HeaderFontStyle : state.HeaderFontStyle,
-      elementTextSize : state.elementTextSize,
-      elementFontStyle :state.elementFontStyle,
-      headerTextColor : state.headerTextColor,
-      headerBackgroundColor : state.headerBackgroundColor,
-      elementTextColor:state.elementTextColor,
-      elementBackgroundColor:state.elementBackgroundColor,
-      displayedList : state.displayedList,
-      dateRangeFilter : state.dateRangeFilter
+    headerTextSize : state.headerTextSize,
+    HeaderFontStyle : state.HeaderFontStyle,
+    elementTextSize : state.elementTextSize,
+    elementFontStyle :state.elementFontStyle,
+    headerTextColor : state.headerTextColor,
+    headerBackgroundColor : state.headerBackgroundColor,
+    elementTextColor:state.elementTextColor,
+    elementBackgroundColor:state.elementBackgroundColor,
+    displayedList : state.displayedList,
+    dateRangeFilter : state.dateRangeFilter
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-      onAppNameChanging : (newAppName) => dispatch({type: 'APPNAMECHANING', payload: newAppName}),
-      onAppNameChanged : (AppName) => dispatch({type: 'APPNAMECHANGED', payload: AppName}),
+    onAppNameChanging : (newAppName) => dispatch({type: 'APPNAMECHANING', payload: newAppName}),
+    onAppNameChanged : (AppName) => dispatch({type: 'APPNAMECHANGED', payload: AppName}),
   };
 };
 

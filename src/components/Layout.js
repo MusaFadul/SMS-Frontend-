@@ -39,7 +39,7 @@ class Layout_ extends Component {
            onMouseOver = {()=>this.setState({filterBut : "red" })} onMouseLeave = {()=>this.setState({filterBut : "" })}>Filter</Button>
         </div>
         <div> <Grid {...this.state}/> </div>
-        </Content>
+      </Content>
     );
   }
 
@@ -47,24 +47,23 @@ class Layout_ extends Component {
     this.setState({
       filter : true
     })
-    const dateRange = {startDate : this.state.start_date , endDate : this.state.end_date}
-    this.props.onDateRangeFilter(dateRange)
+  const dateRange = {startDate : this.state.start_date , endDate : this.state.end_date}
+  this.props.onDateRangeFilter(dateRange)
 }
 
-  onStartDateChange = (date, dateString)=> {
+  onStartDateChange = (date, dateString)=> {   
     this.setState({
       start_date : dateString
-    })
-   
-}
+    }) 
+  }
 
   onEndDateChange = (date, dateString)=> {
     this.setState({
       end_date : dateString
     })
   }
-
 }
+
 const mapStateToProps = state => {
   return {
     showCityColumn : state.showCityColumn,
@@ -78,9 +77,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-      onDateRangeFilter : (dateRange) => dispatch({type: 'DATERANGEFILTER', payload:dateRange}),
+    onDateRangeFilter : (dateRange) => dispatch({type: 'DATERANGEFILTER', payload:dateRange}),
   };
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps) (Layout_);

@@ -75,7 +75,6 @@ const reducer = (state = initialState, action) => {
     }
 
     if(action.type === "PRICETANGEFILTER"  ) {
-        console.log("filter")
         return {
             ...state,
             dateRangeFilter : true,
@@ -91,14 +90,12 @@ const reducer = (state = initialState, action) => {
         }
     }
 
-    
-
     if(action.type === "COLORCHANGED" && action.payload.identifier === Constant.gridHeader && action.payload.name === Constant.textColor ) {
         
         return {
             ...state,
-             headerTextColor: action.payload.color,
-             headerDefaultTextColorRadio:false,
+            headerTextColor: action.payload.color,
+            headerDefaultTextColorRadio:false,
              
         }
     }
@@ -107,78 +104,69 @@ const reducer = (state = initialState, action) => {
        
         return {
             ...state,
-             headerBackgroundColor: action.payload.color,
-             headerDefaultBackgroundColorRadio:false,
+            headerBackgroundColor: action.payload.color,
+            headerDefaultBackgroundColorRadio:false,
         }
     }
 
     if(action.type === "THEMECHANED" && action.payload.identifier === Constant.gridHeader && action.payload.name === Constant.defaultTextColor  ) {
         return {
             ...state,
-             headerDefaultTextColorRadio:true,
-             headerTextColor: 'white',
+            headerDefaultTextColorRadio:true,
+            headerTextColor: 'white',
         }
     }
 
     if(action.type === "THEMECHANED" && action.payload.identifier === Constant.gridHeader && action.payload.name === Constant.defaultBackgroundColor ) {
         return {
             ...state,
-             headerDefaultBackgroundColorRadio:true,
-             headerBackgroundColor: '#00a0e9',
+            headerDefaultBackgroundColorRadio:true,
+            headerBackgroundColor: '#00a0e9',
         }
     }
 
     if(action.type === "COLORCHANGED" && action.payload.identifier === Constant.gridElements && action.payload.name === Constant.textColor) {
-       console.log(  action.payload.name + "   " + Constant.textColor)
+
         return {
             ...state,
              
-             elementTextColor: action.payload.color,
-             elementDefaultTextColorRadio:false
+            elementTextColor: action.payload.color,
+            elementDefaultTextColorRadio:false
         }
     }
 
     if(action.type === "COLORCHANGED" && action.payload.identifier === Constant.gridElements && action.payload.name === Constant.backgroundColor) {
-        console.log(  action.payload.name + "   " + Constant.textColor)
          return {
              ...state,
               
-              elementBackgroundColor: action.payload.color,
-              elementDefaultBackgroundColorRadio:false
+            elementBackgroundColor: action.payload.color,
+            elementDefaultBackgroundColorRadio:false
          }
      }
 
      if(action.type === "THEMECHANED" && action.payload.identifier === Constant.gridElements && action.payload.name === Constant.defaultTextColor ) {
         return {
             ...state,
-             elementDefaultTextColorRadio:true,
-             elementTextColor: 'white',
+            elementDefaultTextColorRadio:true,
+            elementTextColor: 'white',
         }
     }
 
     if(action.type === "THEMECHANED" && action.payload.identifier === Constant.gridElements && action.payload.name === Constant.defaultBackgroundColor ) {
         return {
             ...state,
-             elementDefaultBackgroundColorRadio:true,
-             elementBackgroundColor: 'default',
+            elementDefaultBackgroundColorRadio:true,
+            elementBackgroundColor: 'default',
         }
     }
-
-
-    
-    
-    
-    
-   
 
     if(action.type === "THEMECHANED" && action.payload.identifier === Constant.gridHeader && action.payload.name === Constant.textSizeLarge ) {
         return {
             ...state,
-           
-                headerlargeTextSize:true,
-                headerMediumTextSize:false,
-                headerSmallTextSize:false,
-                headerTextSize:"20px"
+            headerlargeTextSize:true,
+            headerMediumTextSize:false,
+            headerSmallTextSize:false,
+            headerTextSize:"20px"
         }
     }
 
@@ -337,11 +325,11 @@ const reducer = (state = initialState, action) => {
         }
     }
     if(action.type === "SIDEDRAWER") {
-            return {
-                ...state,
-                showBackdrop:true,
-                showSideDrawer:true
-            }
+        return {
+            ...state,
+            showBackdrop:true,
+            showSideDrawer:true
+        }
     }
     if(action.type === "HIDEBACKDROP") {
         return {
@@ -353,7 +341,6 @@ const reducer = (state = initialState, action) => {
     }
 
     if(action.type === "UNCHECKED" && action.payload.name === Constant.cityCheckBox) {
-        console.log( action.payload.checked + '   '  + action.payload.name )
         return {
             ...state,
             showCityColumn : action.payload.checked, 
@@ -361,7 +348,6 @@ const reducer = (state = initialState, action) => {
     }
 
     if(action.type === "UNCHECKED" && action.payload.name === Constant.colorCheckBox) {
-        console.log( action.payload.checked + '   '  + action.payload.name )
         return {
             ...state,
             ShowColorColumn : action.payload.checked, 
@@ -369,7 +355,6 @@ const reducer = (state = initialState, action) => {
     }
 
     if(action.type === "UNCHECKED" && action.payload.name === Constant.priceCheckBox) {
-        console.log( action.payload.checked + '   '  + action.payload.name )
         return {
             ...state,
             showPriceColumn : action.payload.checked, 
@@ -377,7 +362,6 @@ const reducer = (state = initialState, action) => {
     }
 
     if(action.type === "UNCHECKED" && action.payload.name === Constant.statusCheckBox) {
-        console.log( action.payload.checked + '   '  + action.payload.name )
         return {
             ...state,
             showStatusColumn : action.payload.checked, 
@@ -385,14 +369,12 @@ const reducer = (state = initialState, action) => {
     }
 
     if(action.type === "UNCHECKED" && action.payload.name === Constant.startdateCheckBox) {
-        console.log( action.payload.checked + '   '  + action.payload.name )
         return {
             ...state,
             showStartDateColumn : action.payload.checked, 
         }
     }
     if(action.type === "UNCHECKED" && action.payload.name === Constant.endDateCheckBox) {
-        console.log( action.payload.checked + '   '  + action.payload.name )
         return {
             ...state,
             showEndDateColumn : action.payload.checked, 

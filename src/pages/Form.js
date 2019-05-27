@@ -129,13 +129,13 @@ class RegistrationForm extends React.Component {
 }
 const mapStateToProps = state => {
   return {
-      userIcon : state.email
+    userIcon : state.email
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-      onRegister : (values) => dispatch({type: 'REGISTRATIONED', userCredentials : values}),
+    onRegister : (values) => dispatch({type: 'REGISTRATIONED', userCredentials : values}),
   };
 };
 

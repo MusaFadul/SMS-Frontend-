@@ -4,35 +4,32 @@ import CheckBox from './CHeckBox'
 import Constant from '../../../../store/constants'
 import { connect } from 'react-redux'
 
-
 const Option = Select.Option;
 
-
 class DisplayPanel extends React.Component {
- 
     
-    state = {
-      value: 1,
-    };
+  state = {
+    value: 1,
+  };
     
-    onChange = e => {
-      this.setState({
-        value: e.target.value,
-      });
-    };
-     handleStatusChange = (status) =>{
-      this.props.onStatusFilter(status)
-    }
+  onChange = e => {
+    this.setState({
+      value: e.target.value,
+    });
+  };
+    handleStatusChange = (status) =>{
+    this.props.onStatusFilter(status)
+  }
 
-    handleSliderChange = value => {
-      const priceRange = { minPrice : value[0], maxPrice : value[1]}
-      this.props.onPriceRangeFilter(priceRange)
-    };
+  handleSliderChange = value => {
+    const priceRange = { minPrice : value[0], maxPrice : value[1]}
+    this.props.onPriceRangeFilter(priceRange)
+  };
 
-    render() {
-      const SelectStatus = !this.props.showStatusColumn
-      return (
-        <div style={{ with:"24%", height:"24%"}}> 
+  render() {
+    const SelectStatus = !this.props.showStatusColumn
+    return (
+      <div style={{ with:"24%", height:"24%"}}> 
         <Row style={{marginTop:"2%"}}>
           <Col span={6}> <CheckBox  name = {Constant.cityCheckBox} checked = {this.props.showCityColumn} /></Col>
           <Col span={6} >City</Col>
@@ -53,8 +50,8 @@ class DisplayPanel extends React.Component {
               <div style={{width:"90%"}}>
                 <Slider range defaultValue={[0, 100]} disabled={!this.props.showPriceColumn} onChange={this.handleSliderChange}/>
               </div>  
-            </Tooltip></Col>
-        
+            </Tooltip>
+          </Col>
         </Row>
         <Row style={{marginTop:"0%"}}>
           <Col span={6}> <CheckBox  name =  {Constant.statusCheckBox} checked = {this.props.showStatusColumn} /></Col>
@@ -73,13 +70,13 @@ class DisplayPanel extends React.Component {
               </Select>
           </Tooltip></Col>
         </Row>     
-    </div>
+      </div>
     );
   } 
   onPrcieRange = ()=>{
     let toolTip = "Filter By Price range"
     if(!this.props.showPriceColumn) {
-        toolTip = "Please Enable Price"
+      toolTip = "Please Enable Price"
     }
     return toolTip;
   }  
@@ -98,11 +95,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-      onUnchecked : (checkBoxInfo) => dispatch({type: 'UNCHECKED', payload:checkBoxInfo}),
-      onPriceRangeFilter : (priceRange) => dispatch({type: 'PRICETANGEFILTER', payload:priceRange}),
-      onStatusFilter : (status) => dispatch({type: 'STATUSFILTER', payload:status}),
+    onUnchecked : (checkBoxInfo) => dispatch({type: 'UNCHECKED', payload:checkBoxInfo}),
+    onPriceRangeFilter : (priceRange) => dispatch({type: 'PRICETANGEFILTER', payload:priceRange}),
+    onStatusFilter : (status) => dispatch({type: 'STATUSFILTER', payload:status}),
   };
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps) (DisplayPanel);

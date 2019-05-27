@@ -52,8 +52,8 @@ class Navigatgor extends Component {
 
 const mapStateToProps = state => {
   return {
-      form : state.form,
-      grid: state.grid
+    form : state.form,
+    grid: state.grid
   };
 };
 

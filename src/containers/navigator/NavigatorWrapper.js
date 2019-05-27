@@ -8,10 +8,12 @@ const {  Footer } = Layout;
 
 
 class NavigatorWrapper extends Component {
+
   constructor(props) {
     super(props);
     this.state = {};
   }
+  
   render() {
    
     const { component } = this.props;

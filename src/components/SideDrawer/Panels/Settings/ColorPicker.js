@@ -76,7 +76,6 @@ class ColorPicker extends React.Component {
   }
 }
 
-
 const mapDispatchToProps = dispatch => {
   return {
       onColorChanged : (colorInfo) => dispatch({type: 'COLORCHANGED', payload: colorInfo}),

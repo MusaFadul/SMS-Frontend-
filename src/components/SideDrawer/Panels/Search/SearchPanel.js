@@ -4,18 +4,18 @@ import { connect } from 'react-redux'
 
 const Search = Input.Search;
 
-class  FilteredList extends Component {
+class  SearchPanel extends Component {
    
   render (){
     return (
       <div style={{margin:"5%" ,with:"24%"}}>  
-         <Tooltip placement="bottom" title= " Enter City Name " style = {{backgroundColor : "red"}} arrowPointAtCenter>
+        <Tooltip placement="bottom" title= " Enter City Name " style = {{backgroundColor : "red"}} arrowPointAtCenter>
           <Search placeholder="Search by City Name "
-              onSearch={cityName => this.props.onCityNameFilter(cityName)} 
-              enterButton /> 
-          </Tooltip> 
-        </div>
-        ); 
+            onSearch={cityName => this.props.onCityNameFilter(cityName)} 
+            enterButton /> 
+        </Tooltip> 
+      </div>
+   ); 
   } 
 }
 
@@ -26,4 +26,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default  connect(null, mapDispatchToProps) (FilteredList);
+export default  connect(null, mapDispatchToProps) (SearchPanel);
